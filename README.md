@@ -4,6 +4,8 @@
 
 Misty is made for clear, quiet interfaces: thin glass over a lit field, one hue, native type and motion that shows direction. This repository holds the standard, its reference stylesheet, one token file and a package generated from that file for each platform.
 
+See more at misty-beta.vercel.app.
+
 - **Version:** 1.1, stable. Annexes A and B are provisional.
 - **Scope:** 248 requirements in 32 clauses and two annexes, and 38 components.
 - **Platforms:** web, Apple platforms, Android, Windows, Flutter, React Native and other JavaScript runtimes.
