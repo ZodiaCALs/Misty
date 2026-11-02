@@ -9,6 +9,9 @@ Misty uses a different licence for each kind of material. The standard’s text 
 | Text and figures of the standard | `standard/` | Creative Commons Attribution-NoDerivatives 4.0 International, with the translation permission below | `CC-BY-ND-4.0` |
 | Stylesheet, scripts and icon sprite embedded in the standard | `standard/` | Apache License 2.0 | `Apache-2.0` |
 | Reference stylesheet, token file, platform packages and scripts | `platforms/`, `tokens/`, `scripts/` | Apache License 2.0 | `Apache-2.0` |
+| Text and images of the home page, the sample site and the mark page | `index.html`, `sample/`, `brand/index.html` | Creative Commons Attribution-NoDerivatives 4.0 International | `CC-BY-ND-4.0` |
+| Stylesheet and scripts embedded in those pages | `index.html`, `sample/`, `brand/index.html` | Apache License 2.0 | `Apache-2.0` |
+| Artwork of the Misty mark and its options | `brand/marks/` | Creative Commons Attribution-NoDerivatives 4.0 International, and the trademark policy | `CC-BY-ND-4.0` |
 | README, CHANGELOG, CONTRIBUTING, TRADEMARKS and this file | repository root | Creative Commons Attribution-NoDerivatives 4.0 International | `CC-BY-ND-4.0` |
 
 The standard is one HTML file that holds both kinds of material, so its SPDX expression is `CC-BY-ND-4.0 AND Apache-2.0`: the text and figures are under CC BY-ND 4.0, and the code in its `style` and `script` elements and its icon sprite are under Apache-2.0. `REUSE.toml` records the licence of every path.

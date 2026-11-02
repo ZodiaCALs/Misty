@@ -13,10 +13,12 @@ A minor release. Every product that conforms to 1.0 still conforms to 1.1: the n
 - `tokens/misty.tokens.json` in the Design Tokens Format Module 2025.10, and packages generated from it for web, Apple platforms, Android, Windows, Flutter, JavaScript and design tools.
 - `scripts/verify_contrast.py`, which checks COL-10 at all 360 hues in both appearances.
 - Clause 1.7, on copyright, licences and trademarks, with `LICENSE.md`, `TRADEMARKS.md`, `NOTICE` and `REUSE.toml`.
+- The Misty web: a home page, Fieldbook, a sample product site made with Misty, and four options for the mark, with `scripts/build_site.py` to refresh the stylesheet each page embeds.
+- The slogan, “See what you see”, and its description, “The most elegant design language for the future.”
 
 ### Fixed in the reference implementation
 
-- LAY-06 and ACC-15: long one-word titles, long inline code and one segmented control no longer scroll the page sideways at 320 px.
+- LAY-06 and ACC-15: long one-word titles, long inline code, one segmented control and the showcase hero’s glow no longer scroll the page sideways at 320 px.
 - LAY-12, ACC-12 and ICO-08: on touch screens, controls drawn smaller than 44 px grow to 44 px, and switches, links and copy buttons get a 44 px hit area, so neighbouring targets don’t overlap.
 - ICO-10 and WRI-12: the stylesheet uses logical properties throughout, directional glyphs mirror in right-to-left layouts, and tab arrow keys and the Beside transition follow the writing direction.
 - TYP-08: Chinese, Japanese and Korean text drops negative tracking and keeps a line height of 1.7, and each language reaches for faces drawn for it.

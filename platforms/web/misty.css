@@ -26,6 +26,7 @@
    15  Shared small states
    15A Direction and language
    15C Table row headers
+   15D Showcase layout
    15B Touch targets
    16  Standard site (documentation only)
    ========================================================================== */
@@ -5764,6 +5765,32 @@ select.input:dir(rtl) {
 
 .table code {
   font-size: max(0.6875rem, 0.91em);
+}
+
+/* ============================================================================
+   15D — SHOWCASE LAYOUT
+   The hero stage fills its column on compact windows, its glow never pushes
+   the page sideways (LAY-06), and no showcase text is below 11 px (TYP-06).
+   ========================================================================== */
+
+.hero {
+  overflow-x: clip;
+}
+
+@media (max-width: 960px) {
+  .hero__stage {
+    width: 100%;
+  }
+}
+
+/* Nothing in the showcase is set below 11 px (TYP-06). */
+.app__times,
+.grade-row b,
+.swatch__token,
+.bento__head span,
+.stage-strip__title,
+.stage-hue {
+  font-size: 0.6875rem;
 }
 
 /* ============================================================================

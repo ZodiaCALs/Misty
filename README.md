@@ -12,7 +12,10 @@ Misty is made for clear, quiet interfaces: thin glass over a lit field, one hue,
 ## Contents
 
 ```text
+index.html   The Misty home page, the front page of the Misty web
 standard/    The standard, as one self-contained HTML file
+sample/      Fieldbook, a sample product site made with Misty
+brand/       The four options for the Misty mark, as a page and as SVG files
 tokens/      misty.tokens.json, the source of every value
 platforms/   Packages generated from the token file
   web/       misty.css (tokens and components) and misty-tokens.css (tokens only)
@@ -22,12 +25,21 @@ platforms/   Packages generated from the token file
   flutter/   Dart package for Flutter on any platform
   js/        ES module for React Native and other JavaScript runtimes
   dtcg/      Light and dark token files for design tools
-scripts/     The token build, the stylesheet check and the contrast check
+scripts/     The token build, the stylesheet checks, the contrast check and the site build
 ```
 
 ## Read the standard
 
 Open `standard/Misty_Design_Language_Standard_1_1.html` in a current browser. It works offline and needs no server. Change the hue or the appearance from the palette in the top bar, and every figure follows. To review a product, work through the conformance checklist in clause 31.
+
+## The Misty web
+
+Open `index.html` for the front page. It links to the standard, to Fieldbook and to the mark options, and its hue slider recolours the whole page live. Like the standard, each page is one self-contained file that embeds `platforms/web/misty.css`, so the pages work offline and from any static host.
+
+- `sample/index.html` is Fieldbook, a fictional notebook app for walks. It uses only Misty’s components and tokens, with its own fixed hue of 165, to show what a product built with Misty looks like.
+- `brand/index.html` compares four directions for the mark: Daybreak, the recommendation, Grades, Monogram and Field. Each is shown at every size, on light and dark, and can be tried in the page’s own top bar. The SVG files are in `brand/marks/`.
+
+After changing `platforms/web/misty.css`, run `python3 scripts/build_site.py` to refresh the copy embedded in each page.
 
 ## Use Misty
 
@@ -146,10 +158,11 @@ A product that meets every MUST at a level says so in the form GEN-04 gives: “
 ## Before you publish
 
 1. Replace `[contact address]` in `TRADEMARKS.md` with an address for permission requests.
-2. Run `sh scripts/fetch-licenses.sh` to save the official licence texts in `LICENSES/`.
-3. Search the trademark registers in the countries and classes you care about before relying on the name. “Misty” is a common word.
-4. Build the Swift, Kotlin, Dart and C# packages once in their own toolchains. They’re generated code and haven’t been compiled yet.
-5. Have a lawyer review `LICENSE.md` and `TRADEMARKS.md`.
+2. Choose one of the four mark options in `brand/`. Until then, the pages keep the 1.0 mark.
+3. Run `sh scripts/fetch-licenses.sh` to save the official licence texts in `LICENSES/`.
+4. Search the trademark registers in the countries and classes you care about before relying on the name. “Misty” is a common word.
+5. Build the Swift, Kotlin, Dart and C# packages once in their own toolchains. They’re generated code and haven’t been compiled yet.
+6. Have a lawyer review `LICENSE.md` and `TRADEMARKS.md`.
 
 ## Contributing
 

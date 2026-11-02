@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Misty">
+  <!-- SPDX-FileCopyrightText: 2026 ZodiaCALs
+       SPDX-License-Identifier: CC-BY-ND-4.0
+       The Misty mark, “Field” option. Misty and the Misty mark are
+       trademarks of ZodiaCALs; see TRADEMARKS.md. -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6f9df0"/><stop offset="1" stop-color="#a98bea"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#g)"/><circle cx="22.5" cy="10" r="3.25" fill="#fff"/><g fill="none" stroke="#fff" stroke-width="2.25" stroke-linecap="round"><path d="M7 16h18" stroke-opacity=".95"/><path d="M7 20.5h13" stroke-opacity=".75"/><path d="M7 25h8" stroke-opacity=".55"/></g>
+</svg>
