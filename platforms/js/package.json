@@ -1,0 +1,13 @@
+{
+  "name": "misty-tokens",
+  "version": "1.1.0",
+  "description": "Misty design tokens for JavaScript runtimes, including React Native.",
+  "type": "module",
+  "main": "misty-tokens.mjs",
+  "exports": "./misty-tokens.mjs",
+  "files": [
+    "misty-tokens.mjs"
+  ],
+  "license": "Apache-2.0",
+  "author": "ZodiaCALs"
+}

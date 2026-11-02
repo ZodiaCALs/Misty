@@ -1,0 +1,2269 @@
+{
+  "$description": "Misty design tokens. The source of truth for every platform package. Colours are given at the default hue, 250, in the light appearance; $extensions.org.misty records how each colour follows the hue and its value in the dark appearance.",
+  "$extensions": {
+    "org.misty": {
+      "version": "1.1.0",
+      "hue": {
+        "default": 250.0,
+        "min": 0,
+        "max": 360
+      },
+      "conversion": "OKLCH to sRGB with the OKLab matrices of CSS Color Module Level 4, each channel clipped to 0..1, as browsers do on sRGB displays."
+    }
+  },
+  "parameter": {
+    "$description": "The one parameter that every theme colour reads.",
+    "hue": {
+      "$type": "number",
+      "$value": 250.0,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-hue"
+        }
+      }
+    }
+  },
+  "font": {
+    "$description": "Type stacks. Native platforms use their own interface face instead.",
+    "font-sans": {
+      "$type": "fontFamily",
+      "$value": [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "SF Pro Text",
+        "Segoe UI Variable Text",
+        "Segoe UI",
+        "system-ui",
+        "Roboto",
+        "PingFang SC",
+        "Hiragino Sans",
+        "Microsoft YaHei",
+        "Noto Sans CJK SC",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Noto Color Emoji"
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-font-sans"
+        }
+      }
+    },
+    "font-mono": {
+      "$type": "fontFamily",
+      "$value": [
+        "ui-monospace",
+        "SF Mono",
+        "SFMono-Regular",
+        "Cascadia Code",
+        "Cascadia Mono",
+        "Menlo",
+        "Monaco",
+        "Consolas",
+        "Liberation Mono",
+        "Courier New",
+        "monospace"
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-font-mono"
+        }
+      }
+    }
+  },
+  "field": {
+    "$description": "The lit field behind every view.",
+    "sky": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.962,
+          0.01,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#eef3f9"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-sky",
+          "themed": true,
+          "light": {
+            "l": 0.962,
+            "c": 0.01,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.17,
+            "c": 0.015,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "sky-high": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0.006,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#f7fafe"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-sky-high",
+          "themed": true,
+          "light": {
+            "l": 0.985,
+            "c": 0.006,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.205,
+            "c": 0.016,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "aurora-1": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.845,
+          0.105,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#97d2ff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-aurora-1",
+          "themed": true,
+          "light": {
+            "l": 0.845,
+            "c": 0.105,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.43,
+            "c": 0.1,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "aurora-2": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.885,
+          0.08,
+          305.0
+        ],
+        "alpha": 1.0,
+        "hex": "#e5ccff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-aurora-2",
+          "themed": true,
+          "light": {
+            "l": 0.885,
+            "c": 0.08,
+            "h": 55.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.375,
+            "c": 0.08,
+            "h": 55.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "aurora-3": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.915,
+          0.052,
+          180.0
+        ],
+        "alpha": 1.0,
+        "hex": "#beefe4"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-aurora-3",
+          "themed": true,
+          "light": {
+            "l": 0.915,
+            "c": 0.052,
+            "h": -70.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.325,
+            "c": 0.06,
+            "h": -70.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "grain": {
+      "$type": "number",
+      "$value": 0.045,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-grain",
+          "themed": true,
+          "dark": 0.065
+        }
+      }
+    }
+  },
+  "ink": {
+    "$description": "Text and icon colours: one tinted ink at several alphas.",
+    "ink-90": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.92,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-90",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.92,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.92,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "ink-70": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.72,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-70",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.72,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.72,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "ink-50": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.62,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-50",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.62,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.55,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "ink-30": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.35,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-30",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.35,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.35,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "ink-10": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.1,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-10",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.1,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.1,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "ink-06": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.06,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ink-06",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.06,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.98,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 0.06,
+            "hue": "relative"
+          }
+        }
+      }
+    }
+  },
+  "accent": {
+    "$description": "The one strong colour of a view.",
+    "accent": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.46,
+          0.15,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#0059a7"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-accent",
+          "themed": true,
+          "light": {
+            "l": 0.46,
+            "c": 0.15,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.78,
+            "c": 0.12,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "accent-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.43,
+          0.15,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#00509d"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-accent-hover",
+          "themed": true,
+          "light": {
+            "l": 0.43,
+            "c": 0.15,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.82,
+            "c": 0.12,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "accent-press": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.4,
+          0.15,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#004794"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-accent-press",
+          "themed": true,
+          "light": {
+            "l": 0.4,
+            "c": 0.15,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.74,
+            "c": 0.12,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "accent-text": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.46,
+          0.14,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#0059a2"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-accent-text",
+          "themed": true,
+          "light": {
+            "l": 0.46,
+            "c": 0.14,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.84,
+            "c": 0.11,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "accent-soft": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.93,
+          0.045,
+          250.0
+        ],
+        "alpha": 0.72,
+        "hex": "#d2ebff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-accent-soft",
+          "themed": true,
+          "light": {
+            "l": 0.93,
+            "c": 0.045,
+            "h": 0.0,
+            "alpha": 0.72,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.32,
+            "c": 0.06,
+            "h": 0.0,
+            "alpha": 0.7,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "on-accent": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.99,
+          0.005,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#f9fcff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-on-accent",
+          "themed": true,
+          "light": {
+            "l": 0.99,
+            "c": 0.005,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.165,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    }
+  },
+  "semantic": {
+    "$description": "Status colours. They don’t follow the hue.",
+    "success": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.48,
+          0.13,
+          155.0
+        ],
+        "alpha": 1.0,
+        "hex": "#00723b"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-success",
+          "themed": true,
+          "light": {
+            "l": 0.48,
+            "c": 0.13,
+            "h": 155.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 0.82,
+            "c": 0.12,
+            "h": 155.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "warning": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.48,
+          0.12,
+          75.0
+        ],
+        "alpha": 1.0,
+        "hex": "#845100"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-warning",
+          "themed": true,
+          "light": {
+            "l": 0.48,
+            "c": 0.12,
+            "h": 75.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 0.84,
+            "c": 0.12,
+            "h": 80.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "danger": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.52,
+          0.19,
+          25.0
+        ],
+        "alpha": 1.0,
+        "hex": "#be222a"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-danger",
+          "themed": true,
+          "light": {
+            "l": 0.52,
+            "c": 0.19,
+            "h": 25.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 0.76,
+            "c": 0.15,
+            "h": 25.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "info": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.48,
+          0.12,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#1a609e"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-info",
+          "themed": true,
+          "light": {
+            "l": 0.48,
+            "c": 0.12,
+            "h": 250.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 0.82,
+            "c": 0.11,
+            "h": 250.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "creative": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.48,
+          0.14,
+          310.0
+        ],
+        "alpha": 1.0,
+        "hex": "#764297"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-creative",
+          "themed": true,
+          "light": {
+            "l": 0.48,
+            "c": 0.14,
+            "h": 310.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 0.82,
+            "c": 0.12,
+            "h": 310.0,
+            "alpha": 1.0,
+            "hue": "fixed"
+          }
+        }
+      }
+    }
+  },
+  "line": {
+    "$description": "Hairlines and neutral fills.",
+    "line": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.12,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-line",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.12,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.1,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "line-soft": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.07,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-line-soft",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.07,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.06,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "line-strong": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.2,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-line-strong",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.2,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.18,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "fill": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.045,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-fill",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.045,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.06,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "fill-hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.075,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-fill-hover",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.075,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.09,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "fill-press": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0.02,
+          250.0
+        ],
+        "alpha": 0.11,
+        "hex": "#101820"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-fill-press",
+          "themed": true,
+          "light": {
+            "l": 0.205,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.11,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.13,
+            "hue": "fixed"
+          }
+        }
+      }
+    }
+  },
+  "glass": {
+    "$description": "The grades of glass: Clear, Mist and Veil, and the solid Cloud.",
+    "glass-l": {
+      "$type": "number",
+      "$value": 0.995,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-l",
+          "themed": true,
+          "dark": 0.215
+        }
+      }
+    },
+    "glass-c": {
+      "$type": "number",
+      "$value": 0.004,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-c",
+          "themed": true,
+          "dark": 0.02
+        }
+      }
+    },
+    "glass-alpha-clear": {
+      "$type": "number",
+      "$value": 0.3,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-alpha-clear",
+          "themed": true,
+          "dark": 0.36
+        }
+      }
+    },
+    "glass-alpha": {
+      "$type": "number",
+      "$value": 0.42,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-alpha",
+          "themed": true,
+          "dark": 0.5
+        }
+      }
+    },
+    "glass-alpha-veil": {
+      "$type": "number",
+      "$value": 0.62,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-alpha-veil",
+          "themed": true,
+          "dark": 0.68
+        }
+      }
+    },
+    "glass-blur-clear": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24.0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-blur-clear"
+        }
+      }
+    },
+    "glass-blur": {
+      "$type": "dimension",
+      "$value": {
+        "value": 26.0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-blur"
+        }
+      }
+    },
+    "glass-blur-veil": {
+      "$type": "dimension",
+      "$value": {
+        "value": 32.0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-blur-veil"
+        }
+      }
+    },
+    "glass-sat": {
+      "$type": "number",
+      "$value": 1.75,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-sat",
+          "unit": "%"
+        }
+      }
+    },
+    "glass-edge": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "alpha": 0.55,
+        "hex": "#ffffff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-edge",
+          "themed": true,
+          "light": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.55,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.1,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "glass-edge-soft": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "alpha": 0.3,
+        "hex": "#ffffff"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-glass-edge-soft",
+          "themed": true,
+          "light": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.3,
+            "hue": "fixed"
+          },
+          "dark": {
+            "l": 1.0,
+            "c": 0.0,
+            "h": 0.0,
+            "alpha": 0.05,
+            "hue": "fixed"
+          }
+        }
+      }
+    },
+    "cloud": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.988,
+          0.004,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#f9fbfe"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-cloud",
+          "themed": true,
+          "light": {
+            "l": 0.988,
+            "c": 0.004,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.235,
+            "c": 0.015,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "cloud-soft": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.972,
+          0.008,
+          250.0
+        ],
+        "alpha": 1.0,
+        "hex": "#f2f6fb"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-cloud-soft",
+          "themed": true,
+          "light": {
+            "l": 0.972,
+            "c": 0.008,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.265,
+            "c": 0.018,
+            "h": 0.0,
+            "alpha": 1.0,
+            "hue": "relative"
+          }
+        }
+      }
+    }
+  },
+  "elevation": {
+    "$description": "Shadows, the scrim behind dialogs and the focus ring.",
+    "scrim": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.2,
+          0.03,
+          250.0
+        ],
+        "alpha": 0.3,
+        "hex": "#0b1723"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-scrim",
+          "themed": true,
+          "light": {
+            "l": 0.2,
+            "c": 0.03,
+            "h": 0.0,
+            "alpha": 0.3,
+            "hue": "relative"
+          },
+          "dark": {
+            "l": 0.08,
+            "c": 0.02,
+            "h": 0.0,
+            "alpha": 0.55,
+            "hue": "relative"
+          }
+        }
+      }
+    },
+    "shadow-1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.04,
+              250.0
+            ],
+            "alpha": 0.04,
+            "hex": "#1e2f41"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 1.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 2.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0.0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.06,
+              250.0
+            ],
+            "alpha": 0.22,
+            "hex": "#142f4b"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 10.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 28.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -18.0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-shadow-1",
+          "themed": true,
+          "light": [
+            {
+              "x": 0.0,
+              "y": 1.0,
+              "blur": 2.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.04,
+                "h": 0.0,
+                "alpha": 0.04,
+                "hue": "relative"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 10.0,
+              "blur": 28.0,
+              "spread": -18.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.06,
+                "h": 0.0,
+                "alpha": 0.22,
+                "hue": "relative"
+              }
+            }
+          ],
+          "dark": [
+            {
+              "x": 0.0,
+              "y": 1.0,
+              "blur": 2.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.22,
+                "hue": "fixed"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 12.0,
+              "blur": 30.0,
+              "spread": -16.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.55,
+                "hue": "fixed"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shadow-2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.04,
+              250.0
+            ],
+            "alpha": 0.06,
+            "hex": "#1e2f41"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 2.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 6.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0.0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.08,
+              250.0
+            ],
+            "alpha": 0.3,
+            "hex": "#042f54"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 22.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 48.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -24.0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-shadow-2",
+          "themed": true,
+          "light": [
+            {
+              "x": 0.0,
+              "y": 2.0,
+              "blur": 6.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.04,
+                "h": 0.0,
+                "alpha": 0.06,
+                "hue": "relative"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 22.0,
+              "blur": 48.0,
+              "spread": -24.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.08,
+                "h": 0.0,
+                "alpha": 0.3,
+                "hue": "relative"
+              }
+            }
+          ],
+          "dark": [
+            {
+              "x": 0.0,
+              "y": 2.0,
+              "blur": 6.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.28,
+                "hue": "fixed"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 24.0,
+              "blur": 52.0,
+              "spread": -22.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.65,
+                "hue": "fixed"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "shadow-3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.04,
+              250.0
+            ],
+            "alpha": 0.1,
+            "hex": "#1e2f41"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 8.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 24.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 0.0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": {
+            "colorSpace": "oklch",
+            "components": [
+              0.3,
+              0.1,
+              250.0
+            ],
+            "alpha": 0.38,
+            "hex": "#002e5d"
+          },
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 40.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 80.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": -30.0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-shadow-3",
+          "themed": true,
+          "light": [
+            {
+              "x": 0.0,
+              "y": 8.0,
+              "blur": 24.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.04,
+                "h": 0.0,
+                "alpha": 0.1,
+                "hue": "relative"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 40.0,
+              "blur": 80.0,
+              "spread": -30.0,
+              "color": {
+                "l": 0.3,
+                "c": 0.1,
+                "h": 0.0,
+                "alpha": 0.38,
+                "hue": "relative"
+              }
+            }
+          ],
+          "dark": [
+            {
+              "x": 0.0,
+              "y": 8.0,
+              "blur": 24.0,
+              "spread": 0.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.35,
+                "hue": "fixed"
+              }
+            },
+            {
+              "x": 0.0,
+              "y": 44.0,
+              "blur": 84.0,
+              "spread": -28.0,
+              "color": {
+                "l": 0.0,
+                "c": 0.0,
+                "h": 0.0,
+                "alpha": 0.78,
+                "hue": "fixed"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "focus": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "color": "{field.sky}",
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 2.0,
+            "unit": "px"
+          }
+        },
+        {
+          "color": "{accent.accent-text}",
+          "offsetX": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "offsetY": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "blur": {
+            "value": 0.0,
+            "unit": "px"
+          },
+          "spread": {
+            "value": 4.0,
+            "unit": "px"
+          }
+        }
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-focus",
+          "themed": true,
+          "light": [
+            {
+              "x": 0.0,
+              "y": 0.0,
+              "blur": 0.0,
+              "spread": 2.0,
+              "ref": "--m-sky"
+            },
+            {
+              "x": 0.0,
+              "y": 0.0,
+              "blur": 0.0,
+              "spread": 4.0,
+              "ref": "--m-accent-text"
+            }
+          ],
+          "dark": [
+            {
+              "x": 0.0,
+              "y": 0.0,
+              "blur": 0.0,
+              "spread": 2.0,
+              "ref": "--m-sky"
+            },
+            {
+              "x": 0.0,
+              "y": 0.0,
+              "blur": 0.0,
+              "spread": 4.0,
+              "ref": "--m-accent-text"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "radius": {
+    "$description": "Corner radii.",
+    "r-xs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.25,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-xs"
+        }
+      }
+    },
+    "r-sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.375,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-sm"
+        }
+      }
+    },
+    "r-md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-md"
+        }
+      }
+    },
+    "r-lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-lg"
+        }
+      }
+    },
+    "r-xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-xl"
+        }
+      }
+    },
+    "r-2xl": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-2xl"
+        }
+      }
+    },
+    "r-full": {
+      "$type": "dimension",
+      "$value": {
+        "value": 999.0,
+        "unit": "px"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-r-full"
+        }
+      }
+    }
+  },
+  "space": {
+    "$description": "The spacing scale, on a 4 px base.",
+    "s1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.25,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s1"
+        }
+      }
+    },
+    "s2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s2"
+        }
+      }
+    },
+    "s3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s3"
+        }
+      }
+    },
+    "s4": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s4"
+        }
+      }
+    },
+    "s5": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s5"
+        }
+      }
+    },
+    "s6": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s6"
+        }
+      }
+    },
+    "s7": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s7"
+        }
+      }
+    },
+    "s8": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s8"
+        }
+      }
+    },
+    "s9": {
+      "$type": "dimension",
+      "$value": {
+        "value": 3.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s9"
+        }
+      }
+    },
+    "s10": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s10"
+        }
+      }
+    },
+    "s11": {
+      "$type": "dimension",
+      "$value": {
+        "value": 5.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s11"
+        }
+      }
+    },
+    "s12": {
+      "$type": "dimension",
+      "$value": {
+        "value": 6.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-s12"
+        }
+      }
+    }
+  },
+  "type": {
+    "$description": "Fluid type sizes and the longest line of text.",
+    "text-display": {
+      "$type": "dimension",
+      "$value": {
+        "value": 3.25,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-text-display",
+          "fluid": {
+            "min": 3.25,
+            "vw": 6.6,
+            "max": 5.75
+          }
+        }
+      }
+    },
+    "text-h1": {
+      "$type": "dimension",
+      "$value": {
+        "value": 2.4,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-text-h1",
+          "fluid": {
+            "min": 2.4,
+            "vw": 4.6,
+            "max": 3.75
+          }
+        }
+      }
+    },
+    "text-h2": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.9,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-text-h2",
+          "fluid": {
+            "min": 1.9,
+            "vw": 3.4,
+            "max": 2.75
+          }
+        }
+      }
+    },
+    "text-h3": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.3,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-text-h3",
+          "fluid": {
+            "min": 1.3,
+            "vw": 2.0,
+            "max": 1.5
+          }
+        }
+      }
+    },
+    "text-lede": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.0625,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-text-lede",
+          "fluid": {
+            "min": 1.0625,
+            "vw": 1.5,
+            "max": 1.1875
+          }
+        }
+      }
+    },
+    "measure": {
+      "$type": "number",
+      "$value": 68.0,
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-measure",
+          "unit": "ch"
+        }
+      }
+    }
+  },
+  "motion": {
+    "$description": "Durations and curves.",
+    "dur-0": {
+      "$type": "duration",
+      "$value": {
+        "value": 80.0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-dur-0"
+        }
+      }
+    },
+    "dur-1": {
+      "$type": "duration",
+      "$value": {
+        "value": 160.0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-dur-1"
+        }
+      }
+    },
+    "dur-2": {
+      "$type": "duration",
+      "$value": {
+        "value": 240.0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-dur-2"
+        }
+      }
+    },
+    "dur-3": {
+      "$type": "duration",
+      "$value": {
+        "value": 380.0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-dur-3"
+        }
+      }
+    },
+    "dur-4": {
+      "$type": "duration",
+      "$value": {
+        "value": 600.0,
+        "unit": "ms"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-dur-4"
+        }
+      }
+    },
+    "ease-fluid": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.22,
+        1.0,
+        0.36,
+        1.0
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ease-fluid"
+        }
+      }
+    },
+    "ease-spring": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.34,
+        1.36,
+        0.64,
+        1.0
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ease-spring"
+        }
+      }
+    },
+    "ease-exit": {
+      "$type": "cubicBezier",
+      "$value": [
+        0.4,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-ease-exit"
+        }
+      }
+    }
+  },
+  "layout": {
+    "$description": "Page widths and fluid spacing.",
+    "page": {
+      "$type": "dimension",
+      "$value": {
+        "value": 75.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-page"
+        }
+      }
+    },
+    "page-docs": {
+      "$type": "dimension",
+      "$value": {
+        "value": 82.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-page-docs"
+        }
+      }
+    },
+    "reading": {
+      "$type": "dimension",
+      "$value": {
+        "value": 44.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-reading"
+        }
+      }
+    },
+    "nav-h": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4.5,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-nav-h"
+        }
+      }
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": {
+        "value": 1.125,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-gutter",
+          "fluid": {
+            "min": 1.125,
+            "vw": 4.0,
+            "max": 2.0
+          }
+        }
+      }
+    },
+    "section": {
+      "$type": "dimension",
+      "$value": {
+        "value": 4.0,
+        "unit": "rem"
+      },
+      "$extensions": {
+        "org.misty": {
+          "css": "--m-section",
+          "fluid": {
+            "min": 4.0,
+            "vw": 9.0,
+            "max": 7.5
+          }
+        }
+      }
+    }
+  }
+}

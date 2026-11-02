@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 ZodiaCALs
+# SPDX-License-Identifier: CC0-1.0
+version = 1
+
+[[annotations]]
+path = ["platforms/**", "tokens/**", "scripts/**", "NOTICE"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 ZodiaCALs"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["README.md", "LICENSE.md", "TRADEMARKS.md", "CHANGELOG.md", "CONTRIBUTING.md"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 ZodiaCALs"
+SPDX-License-Identifier = "CC-BY-ND-4.0"
+
+# One HTML file: its text and figures are CC-BY-ND-4.0; its stylesheet,
+# scripts and icon sprite are Apache-2.0.
+[[annotations]]
+path = "standard/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 ZodiaCALs"
+SPDX-License-Identifier = "CC-BY-ND-4.0 AND Apache-2.0"
