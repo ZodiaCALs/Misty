@@ -21,12 +21,12 @@
 /* SPDX-FileCopyrightText: 2026 ZodiaCALs
    SPDX-License-Identifier: Apache-2.0
 
-   Misty 1.1 reference stylesheet. Tokens and component classes, with no
+   Misty 1.2 reference stylesheet. Tokens and component classes, with no
    build step and no dependencies. The standard defines every class here;
-   see standard/Misty_Design_Language_Standard_1_1.html, clause 30. */
+   see standard/Misty_Design_Language_Standard_1_2.html, clause 30. */
 
 /* ============================================================================
-   MISTY DESIGN LANGUAGE 1.1 — implementation stylesheet
+   MISTY DESIGN LANGUAGE 1.2 — implementation stylesheet
    ----------------------------------------------------------------------------
    Sections
    01  Tokens
@@ -469,6 +469,24 @@ ul, ol {
   max-width: var(--m-page);
   margin-inline: auto;
   padding-inline: var(--m-gutter);
+}
+
+/* The working surface and its inspector wrap in reading order. */
+.workspace-split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--m-s4);
+}
+
+.workspace-split > :first-child {
+  flex: 2 1 24rem;
+  min-inline-size: 0;
+}
+
+.workspace-split > :nth-child(2) {
+  flex: 1 1 16rem;
+  min-inline-size: 0;
 }
 
 .wrap--docs {
@@ -1564,8 +1582,69 @@ select.input {
   display: none;
 }
 
+/* Keep toolbar glass beside its controls so a floating panel can blur the page. */
+.topbar__surface {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 .settings {
   position: relative;
+}
+
+/* Apply to a Cloud settings panel. Solid is the reading surface on first use. */
+.settings-surface {
+  --m-elevation: var(--m-shadow-2);
+}
+
+:where([data-panel-material="frosted"]) .settings-surface {
+  background-color: oklch(var(--m-glass-l) var(--m-glass-c) var(--m-hue) / 0.90);
+  -webkit-backdrop-filter: blur(var(--m-glass-blur-veil)) saturate(var(--m-glass-sat));
+  backdrop-filter: blur(var(--m-glass-blur-veil)) saturate(var(--m-glass-sat));
+}
+
+.settings__materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--m-s2);
+}
+
+.settings__materials label {
+  display: flex;
+  flex: 1 1 6rem;
+  align-items: center;
+  gap: var(--m-s2);
+  min-height: 2.75rem;
+  padding-inline: var(--m-s3);
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--m-r-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--m-ink-90);
+  cursor: pointer;
+}
+
+.settings__materials label:has(:checked) {
+  border-color: var(--m-accent-text);
+  background-color: var(--m-cloud);
+}
+
+.settings__materials input {
+  margin: 0;
+  accent-color: var(--m-accent);
+}
+
+.settings__materials label:has(:focus-visible) {
+  outline: 2px solid var(--m-accent-text);
+  outline-offset: 2px;
+}
+
+.settings__material-note {
+  font-size: 0.8125rem;
+  color: var(--m-ink-70);
 }
 
 .settings__panel {
@@ -1574,6 +1653,9 @@ select.input {
   inset-inline-end: 0;
   z-index: 70;
   width: min(20.5rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - var(--m-nav-h) - 2.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 1.1rem;
   border-radius: var(--m-r-lg);
   animation: panel-in var(--m-dur-2) var(--m-ease-fluid);
@@ -1591,12 +1673,13 @@ select.input {
   margin-bottom: 0.85rem;
 }
 
-.settings__head h2 {
-  font-size: 0.8125rem;
+.settings__head h2,
+.settings__head .settings__label {
+  margin: 0;
+  font-size: 1.0625rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--m-ink-70);
+  letter-spacing: -0.015em;
+  color: var(--m-ink-90);
 }
 
 .settings__hue-value {
@@ -1624,7 +1707,7 @@ select.input {
   gap: 0.75rem;
 }
 
-.settings__row-head span {
+.settings__row-head :is(span, label) {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--m-ink-90);
@@ -1657,6 +1740,7 @@ select.input {
 
 .settings__foot {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -4862,6 +4946,14 @@ h3:hover > .anchor,
   }
 }
 
+@media (forced-colors: active) {
+  .settings-surface {
+    background-color: Canvas;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -5109,8 +5201,13 @@ h3:hover > .anchor,
     height: 2.25rem;
   }
 
-  .settings__panel {
-    inset-inline-end: -0.25rem;
+  .topbar__actions .settings {
+    position: static;
+  }
+
+  .topbar__actions .settings__panel {
+    top: calc(100% + 0.35rem);
+    inset-inline-end: 1rem;
   }
 
   .mobile-menu {
@@ -6080,28 +6177,28 @@ select.input:dir(rtl) {
   <header class="topbar">
     <div class="topbar__inner glass glass--veil">
       <a class="brand" href="index.html" aria-label="Misty, home"><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg><span>Misty</span></a>
-      <nav class="nav" aria-label="Main"><a href="standard/Misty_Design_Language_Standard_1_1.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
+      <nav class="nav" aria-label="Main"><a href="standard/Misty_Design_Language_Standard_1_2.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
       <div class="topbar__actions">
         <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch appearance"><svg class="mi icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg><svg class="mi icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-moon"></use></svg></button><a class="btn btn--secondary btn--sm nav-cta" href="README.md">Get Misty</a>
         <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-menu"></use></svg></button>
       </div>
     </div>
   </header>
-  <nav class="mobile-menu glass glass--veil" id="site-menu" aria-label="Menu" hidden><a href="standard/Misty_Design_Language_Standard_1_1.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
+  <nav class="mobile-menu glass glass--veil" id="site-menu" aria-label="Menu" hidden><a href="standard/Misty_Design_Language_Standard_1_2.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
 
   <main id="main" class="page-main" tabindex="-1">
     <section class="hero">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow"><span class="eyebrow__dot"></span>Misty 1.1</p>
+          <p class="eyebrow"><span class="eyebrow__dot"></span>Misty 1.2</p>
           <h1 class="display">See what you see</h1>
-          <p class="lede hero__lede">The most elegant design language for the future. One hue, four grades of thin glass, native type and motion that shows direction, on every platform and in every language.</p>
+          <p class="lede hero__lede">One hue lights the field. Thin glass frames the controls. The note you are writing, the song you are playing or the photograph you have opened stays in place as the interface changes around it.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="standard/Misty_Design_Language_Standard_1_1.html">Read the standard <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
-            <a class="btn btn--secondary btn--lg" href="sample/index.html">Explore the sample site</a>
+            <a class="btn btn--primary btn--lg" href="standard/Misty_Design_Language_Standard_1_2.html">Read the standard <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
+            <a class="btn btn--secondary btn--lg" href="standard/Misty_Design_Language_Standard_1_2.html#design-concept">Read the design concept</a>
           </div>
           <div class="hero__meta">
-            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>248 requirements</span>
+            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>251 requirements</span>
             <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-grid"></use></svg>38 components</span>
             <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-globe"></use></svg>6 platforms</span>
             <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-accessibility"></use></svg>WCAG 2.2 AA</span>
@@ -6253,7 +6350,7 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
                 <a class="list-row" href="#languages"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-calendar"></use></svg></span><span class="list-row__text"><span class="list-row__title" data-ar="الملخص الأسبوعي">Weekly summary</span><span class="list-row__desc" data-ar="كل يوم اثنين">Every Monday</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a>
               </div>
               <div class="progress" role="progressbar" aria-label="Setup" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><span style="width:60%"></span></div>
-              <div class="row lang-demo__actions"><button class="btn" type="button" data-ar="إلغاء">Cancel</button><a class="link-arrow" href="standard/Misty_Design_Language_Standard_1_1.html#international"><span data-ar="اقرأ الملحق ب">Read Annex B</span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a></div>
+              <div class="row lang-demo__actions"><button class="btn" type="button" data-ar="إلغاء">Cancel</button><a class="link-arrow" href="standard/Misty_Design_Language_Standard_1_2.html#international"><span data-ar="اقرأ الملحق ب">Read Annex B</span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a></div>
             </div>
           </div>
         </div>
@@ -6282,7 +6379,7 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
           </div>
           <div class="bento__item glass glass--mist reveal">
             <div class="bento__head"><h3>Feedback</h3><span>.callout .progress</span></div>
-            <div class="callout callout--accent"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg><div class="callout__body"><span class="callout__title">New in 1.1</span>Two annexes bring Misty to every platform and every language.</div></div>
+            <div class="callout callout--accent"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg><div class="callout__body"><span class="callout__title">New in 1.2</span><a href="standard/Misty_Design_Language_Standard_1_2.html#product-patterns">Try the workspace and explore the player and gallery patterns.</a></div></div>
             <div class="demo-stack"><div class="row"><span class="small">Uploading four photos</span><span class="small muted nums" style="margin-inline-start:auto">68%</span></div><div class="progress" role="progressbar" aria-label="Uploading four photos" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><span style="width:68%"></span></div></div>
           </div>
           <div class="bento__item glass glass--mist reveal" style="--reveal-delay: 55ms">
@@ -6306,7 +6403,7 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
           <p class="lede">Misty is a standard, not a mood board. Every claim on this page can be checked against a numbered requirement or a script.</p>
         </div>
         <div class="grid-3">
-          <article class="card glass glass--mist stack-m reveal"><span class="feature-icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-list"></use></svg></span><h3>Every rule has a name</h3><p>248 numbered requirements, such as LAY-12 and COL-10, each a MUST, SHOULD or MAY. The checklist turns them into a review for a ticket.</p></article>
+          <article class="card glass glass--mist stack-m reveal"><span class="feature-icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-list"></use></svg></span><h3>Every rule has a name</h3><p>251 numbered requirements, such as LAY-12 and COL-10, each a MUST, SHOULD or MAY. The checklist turns them into a review for a ticket.</p></article>
           <article class="card glass glass--mist stack-m reveal" style="--reveal-delay: 55ms"><span class="feature-icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-contrast"></use></svg></span><h3>Contrast at every hue</h3><p>Twelve text pairs pass WCAG at all 360 hues, in light and dark. The check runs in a script on every change.</p></article>
           <article class="card glass glass--mist stack-m reveal" style="--reveal-delay: 110ms"><span class="feature-icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-layers"></use></svg></span><h3>One source, no drift</h3><p>One token file builds the web, Apple, Android, Windows, Flutter and JavaScript packages, and they agree to the last 8-bit channel.</p></article>
         </div>
@@ -6333,9 +6430,9 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
     <div class="wrap">
       <div class="footer__grid">
         <div class="footer__about"><a class="footer__mark" href="index.html"><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg>Misty</a><p class="footer__slogan">See what you see</p><p>The most elegant design language for the future: thin glass over a lit field, one hue, native type and movement that means something.</p></div>
-        <div><h4>Misty</h4><div class="footer__links"><a href="standard/Misty_Design_Language_Standard_1_1.html">The standard</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark options</a><a href="CHANGELOG.md">Changelog</a></div></div><div><h4>Build</h4><div class="footer__links"><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="#components">Components</a><a href="tokens/misty.tokens.json">Token file</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="LICENSE.md">Licences</a><a href="TRADEMARKS.md">Trademarks</a><a href="NOTICE">Notice</a><a href="CONTRIBUTING.md">Contributing</a></div></div>
+        <div><h4>Misty</h4><div class="footer__links"><a href="standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark options</a><a href="CHANGELOG.md">Changelog</a></div></div><div><h4>Build</h4><div class="footer__links"><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="#components">Components</a><a href="tokens/misty.tokens.json">Token file</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="LICENSE.md">Licences</a><a href="TRADEMARKS.md">Trademarks</a><a href="NOTICE">Notice</a><a href="CONTRIBUTING.md">Contributing</a></div></div>
       </div>
-      <div class="footer__bottom"><span><svg class="mi mi--sm" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg>Misty 1.1 · 2026</span><span>© 2026 ZodiaCALs. Misty and the Misty mark are trademarks of ZodiaCALs.</span></div>
+      <div class="footer__bottom"><span><svg class="mi mi--sm" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg>Misty 1.2 · 2026</span><span>© 2026 ZodiaCALs. Misty and the Misty mark are trademarks of ZodiaCALs.</span></div>
     </div>
   </footer>
 

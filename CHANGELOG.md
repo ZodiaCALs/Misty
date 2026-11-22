@@ -2,6 +2,17 @@
 
 Misty follows the versioning rules in clause 3.6 of the standard.
 
+## 1.2 (22 November 2026)
+
+The [design concept](standard/Misty_Design_Language_Standard_1_2.html#design-concept) applies Misty’s field, glass and motion to three tasks people carry between views.
+
+- PRI-04 recommends keeping drafts, selection and playback state as panels change size or position.
+- PRI-05 gives artwork-derived hues a predictable fallback and respects a person’s explicit colour choice.
+- PRI-06 returns a gallery visitor to the current item with visible keyboard focus.
+- [Clause 25.5](standard/Misty_Design_Language_Standard_1_2.html#product-patterns) traces these patterns to FlashCard, Jellyfesh and ShoalNex. Its editable example uses the new `.workspace-split` layout in the web stylesheet.
+- The Appearance panel opens on solid Cloud. Its Panel material control also offers a 90% frosted fill and links to the material lab. MAT-05 permits these settings surfaces at elevation 2.
+- Platform packages identify this edition as 1.2.0. All three additions to the checklist are SHOULD recommendations. A team reviewing a 1.1 implementation can carry its existing review forward and document departures from the new recommendations under GEN-03.
+
 ## 1.1 (2026)
 
 A minor release. Every product that conforms to 1.0 still conforms to 1.1: the new requirements are SHOULD or MAY, and the fixes change the reference implementation, not the requirements.

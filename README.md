@@ -6,8 +6,8 @@ Misty is made for clear, quiet interfaces: thin glass over a lit field, one hue,
 
 See more at misty-beta.vercel.app.
 
-- **Version:** 1.1, stable. Annexes A and B are provisional.
-- **Scope:** 248 requirements in 32 clauses and two annexes, and 38 components.
+- **Version:** 1.2, stable. Annexes A and B are provisional.
+- **Scope:** 251 requirements in 32 clauses and two annexes, and 38 components.
 - **Platforms:** web, Apple platforms, Android, Windows, Flutter, React Native and other JavaScript runtimes.
 - **Accessibility:** WCAG 2.2 at Level AA.
 
@@ -15,7 +15,7 @@ See more at misty-beta.vercel.app.
 
 ```text
 index.html   The Misty home page, the front page of the Misty web
-standard/    The standard, as one self-contained HTML file
+standard/    The current and previous editions, each a self-contained HTML file
 sample/      Fieldbook, a sample product site made with Misty
 brand/       The four options for the Misty mark, as a page and as SVG files
 tokens/      misty.tokens.json, the source of every value
@@ -32,7 +32,19 @@ scripts/     The token build, the stylesheet checks, the contrast check and the 
 
 ## Read the standard
 
-Open `standard/Misty_Design_Language_Standard_1_1.html` in a current browser. It works offline and needs no server. Change the hue or the appearance from the palette in the top bar, and every figure follows. To review a product, work through the conformance checklist in clause 31.
+The [1.2 standard](standard/Misty_Design_Language_Standard_1_2.html) works offline. Open the palette in its top bar to change hue and appearance. Under **Panel material**, choose **Solid** or **Frosted**. The [material lab](standard/Misty_Design_Language_Standard_1_2.html#materials-lab) lets you tune opacity, blur and saturation on a sample. Clause 31 collects the numbered requirements for a product review. The [1.1 standard](standard/Misty_Design_Language_Standard_1_1.html) is also available for reviews that cite that edition.
+
+## Design concept
+
+A person should be able to change the shape of a workspace, move from cover art to lyrics, or open a photograph full screen and keep their place. A single hue connects the surfaces. Thin glass groups nearby controls, while Cloud gives reading and editing a solid ground. When motion or transparency is reduced, headings, selection and focus still show where the person is. [Design concept, clause 2.6](standard/Misty_Design_Language_Standard_1_2.html#design-concept)
+
+| Reference project | Design decision in 1.2 |
+| --- | --- |
+| FlashCard | Keep a draft and its selection while its inspector moves beside or below the editor. |
+| Jellyfesh | Let cover art supply one hue. A person’s fixed hue takes precedence, and missing art has a predictable fallback. |
+| ShoalNex | Track the item as someone browses full-screen photos. On return, bring the current thumbnail into view and restore keyboard focus to it. |
+
+Try the editable workspace and follow the player and gallery reviews in [clause 25.5](standard/Misty_Design_Language_Standard_1_2.html#product-patterns).
 
 ## The Misty web
 
@@ -137,20 +149,20 @@ Set `lang` and `dir` on the root element, and on any part in another language or
 
 1. Edit `tokens/misty.tokens.json`.
 2. Run `python3 scripts/build_tokens.py` to regenerate every package.
-3. Make the same change in `:root` in `platforms/web/misty.css` and in the standard’s embedded stylesheet, then run `python3 scripts/build_tokens.py --check platforms/web/misty.css`.
+3. Make the same change in `:root` in `platforms/web/misty.css` and in the current edition’s embedded stylesheet, then run `python3 scripts/build_tokens.py --check platforms/web/misty.css`.
 4. Run `python3 scripts/verify_contrast.py`. It checks every pair in the contrast table at all 360 hues in both appearances, as COL-10 requires, and fails if any pair drops below its threshold.
 
 The scripts need Python 3.8 or later and no other packages.
 
 ## Claim conformance
 
-A product that meets every MUST at a level says so in the form GEN-04 gives: “Misty 1.1 Core, reviewed 2 November 2026”. A native product names its platform too, as PLT-11 suggests: “Misty 1.1 Complete on Android, reviewed 2 November 2026”. There’s no certification and no badge; see `TRADEMARKS.md`.
+A product that meets every MUST at a level says so in the form GEN-04 gives: “Misty 1.2 Core, reviewed 22 November 2026”. A native product names its platform too, as PLT-11 suggests: “Misty 1.2 Complete on Android, reviewed 22 November 2026”. There’s no certification and no badge; see `TRADEMARKS.md`.
 
 ## Licences
 
 | Material | Licence |
 | --- | --- |
-| Text and figures of the standard | CC BY-ND 4.0, with a permission for unofficial translations |
+| Text and figures of the standard, including the design concept and product patterns | CC BY-ND 4.0, with a permission for unofficial translations |
 | Stylesheet, scripts, tokens, icons and platform packages | Apache License 2.0 |
 | The name Misty, the mark and the conformance levels | Trademark policy |
 | This README and the other documents | CC BY-ND 4.0 |
@@ -159,7 +171,7 @@ A product that meets every MUST at a level says so in the form GEN-04 gives: “
 
 ## Before you publish
 
-1. Replace `[contact address]` in `TRADEMARKS.md` with an address for permission requests.
+1. Check the permission contact in `TRADEMARKS.md`.
 2. Choose one of the four mark options in `brand/`. Until then, the pages keep the 1.0 mark.
 3. Run `sh scripts/fetch-licenses.sh` to save the official licence texts in `LICENSES/`.
 4. Search the trademark registers in the countries and classes you care about before relying on the name. “Misty” is a common word.

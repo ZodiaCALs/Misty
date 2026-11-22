@@ -21,12 +21,12 @@
 /* SPDX-FileCopyrightText: 2026 ZodiaCALs
    SPDX-License-Identifier: Apache-2.0
 
-   Misty 1.1 reference stylesheet. Tokens and component classes, with no
+   Misty 1.2 reference stylesheet. Tokens and component classes, with no
    build step and no dependencies. The standard defines every class here;
-   see standard/Misty_Design_Language_Standard_1_1.html, clause 30. */
+   see standard/Misty_Design_Language_Standard_1_2.html, clause 30. */
 
 /* ============================================================================
-   MISTY DESIGN LANGUAGE 1.1 — implementation stylesheet
+   MISTY DESIGN LANGUAGE 1.2 — implementation stylesheet
    ----------------------------------------------------------------------------
    Sections
    01  Tokens
@@ -469,6 +469,24 @@ ul, ol {
   max-width: var(--m-page);
   margin-inline: auto;
   padding-inline: var(--m-gutter);
+}
+
+/* The working surface and its inspector wrap in reading order. */
+.workspace-split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: var(--m-s4);
+}
+
+.workspace-split > :first-child {
+  flex: 2 1 24rem;
+  min-inline-size: 0;
+}
+
+.workspace-split > :nth-child(2) {
+  flex: 1 1 16rem;
+  min-inline-size: 0;
 }
 
 .wrap--docs {
@@ -1564,8 +1582,69 @@ select.input {
   display: none;
 }
 
+/* Keep toolbar glass beside its controls so a floating panel can blur the page. */
+.topbar__surface {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
 .settings {
   position: relative;
+}
+
+/* Apply to a Cloud settings panel. Solid is the reading surface on first use. */
+.settings-surface {
+  --m-elevation: var(--m-shadow-2);
+}
+
+:where([data-panel-material="frosted"]) .settings-surface {
+  background-color: oklch(var(--m-glass-l) var(--m-glass-c) var(--m-hue) / 0.90);
+  -webkit-backdrop-filter: blur(var(--m-glass-blur-veil)) saturate(var(--m-glass-sat));
+  backdrop-filter: blur(var(--m-glass-blur-veil)) saturate(var(--m-glass-sat));
+}
+
+.settings__materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--m-s2);
+}
+
+.settings__materials label {
+  display: flex;
+  flex: 1 1 6rem;
+  align-items: center;
+  gap: var(--m-s2);
+  min-height: 2.75rem;
+  padding-inline: var(--m-s3);
+  border: 1px solid var(--m-line-strong);
+  border-radius: var(--m-r-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--m-ink-90);
+  cursor: pointer;
+}
+
+.settings__materials label:has(:checked) {
+  border-color: var(--m-accent-text);
+  background-color: var(--m-cloud);
+}
+
+.settings__materials input {
+  margin: 0;
+  accent-color: var(--m-accent);
+}
+
+.settings__materials label:has(:focus-visible) {
+  outline: 2px solid var(--m-accent-text);
+  outline-offset: 2px;
+}
+
+.settings__material-note {
+  font-size: 0.8125rem;
+  color: var(--m-ink-70);
 }
 
 .settings__panel {
@@ -1574,6 +1653,9 @@ select.input {
   inset-inline-end: 0;
   z-index: 70;
   width: min(20.5rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - var(--m-nav-h) - 2.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 1.1rem;
   border-radius: var(--m-r-lg);
   animation: panel-in var(--m-dur-2) var(--m-ease-fluid);
@@ -1591,12 +1673,13 @@ select.input {
   margin-bottom: 0.85rem;
 }
 
-.settings__head h2 {
-  font-size: 0.8125rem;
+.settings__head h2,
+.settings__head .settings__label {
+  margin: 0;
+  font-size: 1.0625rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--m-ink-70);
+  letter-spacing: -0.015em;
+  color: var(--m-ink-90);
 }
 
 .settings__hue-value {
@@ -1624,7 +1707,7 @@ select.input {
   gap: 0.75rem;
 }
 
-.settings__row-head span {
+.settings__row-head :is(span, label) {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--m-ink-90);
@@ -1657,6 +1740,7 @@ select.input {
 
 .settings__foot {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
@@ -4862,6 +4946,14 @@ h3:hover > .anchor,
   }
 }
 
+@media (forced-colors: active) {
+  .settings-surface {
+    background-color: Canvas;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -5109,8 +5201,13 @@ h3:hover > .anchor,
     height: 2.25rem;
   }
 
-  .settings__panel {
-    inset-inline-end: -0.25rem;
+  .topbar__actions .settings {
+    position: static;
+  }
+
+  .topbar__actions .settings__panel {
+    top: calc(100% + 0.35rem);
+    inset-inline-end: 1rem;
   }
 
   .mobile-menu {
@@ -6185,7 +6282,7 @@ select.input:dir(rtl) {
     <div class="wrap">
       <div class="footer__grid">
         <div class="footer__about"><a class="footer__mark" href="index.html"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fb-mark"></use></svg>Fieldbook</a><p>Fieldbook is a fictional product, made to show what a site built with the Misty design language looks like.</p></div>
-        <div><h4>Fieldbook</h4><div class="footer__links"><a href="#how">Features</a><a href="#journal">Journal</a><a href="#pricing">Pricing</a></div></div><div><h4>Misty</h4><div class="footer__links"><a href="../index.html">Misty home</a><a href="../standard/Misty_Design_Language_Standard_1_1.html">The standard</a><a href="../brand/index.html">Mark options</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="../LICENSE.md">Licences</a><a href="../TRADEMARKS.md">Trademarks</a></div></div>
+        <div><h4>Fieldbook</h4><div class="footer__links"><a href="#how">Features</a><a href="#journal">Journal</a><a href="#pricing">Pricing</a></div></div><div><h4>Misty</h4><div class="footer__links"><a href="../index.html">Misty home</a><a href="../standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="../brand/index.html">Mark options</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="../LICENSE.md">Licences</a><a href="../TRADEMARKS.md">Trademarks</a></div></div>
       </div>
       <div class="footer__bottom"><span>Designed with the Misty design language</span><span>© 2026 ZodiaCALs</span></div>
     </div>

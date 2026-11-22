@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 name: misty_tokens
 description: Misty design tokens for Flutter, generated from the Misty token file.
-version: 1.1.0
+version: 1.2.0
 publish_to: none
 
 environment:

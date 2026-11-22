@@ -2,7 +2,7 @@
   "$description": "Misty design tokens. The source of truth for every platform package. Colours are given at the default hue, 250, in the light appearance; $extensions.org.misty records how each colour follows the hue and its value in the dark appearance.",
   "$extensions": {
     "org.misty": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "hue": {
         "default": 250.0,
         "min": 0,
