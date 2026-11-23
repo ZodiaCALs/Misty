@@ -6024,14 +6024,15 @@ select.input:dir(rtl) {
 }
 .topbar { padding: .75rem var(--m-gutter) 0; }
 .topbar__inner {
+  --nav-wash: color-mix(in srgb, var(--m-cloud) 36%, transparent);
   max-width: calc(var(--m-page) - 2 * var(--m-gutter));
   height: 3.75rem;
   padding-inline: var(--m-s4);
-  background-color: var(--m-cloud);
-  border: 1px solid var(--m-line);
+  background-image: linear-gradient(0deg, transparent, var(--nav-wash) 14% 86%, transparent);
   border-radius: var(--m-r-full);
   corner-shape: round;
 }
+.topbar .nav a { color: var(--m-ink-90); }
 .mobile-menu { --m-alpha: .84; }
 .brand { font-size: 1.125rem; margin-inline-end: var(--m-s3); }
 .nav a, .topbar__actions .btn, .hero__actions .btn {
@@ -6194,6 +6195,61 @@ select.input:dir(rtl) {
 .study__label { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; font-size: .875rem; font-weight: 600; }
 .study__group select { min-height: 2.75rem; }
 .study__group .slider { width: 100%; min-height: 2.5rem; }
+.curve-study {
+  overflow: hidden;
+  background: var(--m-cloud);
+  border: 1px solid var(--m-line);
+  border-radius: var(--m-r-2xl);
+}
+.curve-study__plots {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--m-line);
+  gap: 1px;
+}
+.curve-study__plots article {
+  display: grid;
+  align-content: start;
+  padding: clamp(1rem, 2.4vw, 2rem);
+  background: linear-gradient(155deg, var(--m-cloud), var(--m-cloud-soft));
+}
+.curve-study__plots h3 { display: flex; justify-content: space-between; align-items: baseline; gap: .35rem; font-size: 1.125rem; }
+.curve-study__plots p { color: var(--m-ink-70); font-size: .875rem; line-height: 1.5; }
+.curve-study__plots svg {
+  display: block;
+  width: 100%;
+  margin-block: .5rem 1.1rem;
+  color: var(--m-accent-text);
+}
+.curve-study__grid { fill: none; stroke: var(--m-line); stroke-width: .8; }
+.curve-study__line { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+.curve-study__cursor { transform: translateX(var(--cursor-x, 0px)); }
+.curve-study__cursor line { stroke: currentColor; stroke-width: .8; stroke-dasharray: 2 3; }
+.curve-study__cursor circle { fill: currentColor; stroke: var(--m-cloud); stroke-width: 2; }
+.curve-study__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1.5rem;
+  padding: 1rem clamp(1rem, 2.4vw, 2rem);
+  border-block-start: 1px solid var(--m-line);
+}
+.curve-study__time { display: grid; flex: 1 1 13rem; }
+.curve-study__time .slider { width: 100%; min-height: 2.75rem; }
+@media (max-width: 760px) {
+  .curve-study__plots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 360px) {
+  .curve-study__plots { grid-template-columns: 1fr; }
+  .curve-study__plots svg { max-width: 12rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #play-curves { display: none; }
+}
+@media (forced-colors: active) {
+  .curve-study__grid { stroke: GrayText; }
+  .curve-study__cursor circle { fill: CanvasText; stroke: Canvas; }
+}
 .guide__card strong { display: block; font-size: 1.0625rem; line-height: 1.3; }
 .study__value { color: var(--m-ink-70); font: .8125rem/1.5 var(--m-font-mono); }
 .study__controls .hue__presets { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; margin: 0; }
@@ -6450,11 +6506,12 @@ select.input:dir(rtl) {
     <symbol id="mi-case" viewBox="0 0 48 48"><rect x="8" y="15" width="32" height="24" rx="3"/><path d="M19 15v-3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3M8 24h32"/></symbol>
   </svg>
   <header class="topbar">
-    <div class="topbar__inner">
+    <div class="topbar__inner glass glass--mist">
       <a class="brand" href="index.html" aria-label="Misty, home"><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg><span>Misty</span></a>
       <nav class="nav" aria-label="Main">
         <a href="#glass-lab">Glass lab</a>
         <a href="#principles">Foundations</a>
+        <a href="#animation">Animation</a>
         <a href="#components">Components</a>
         <a href="#platforms">Develop</a>
         <a href="sample/index.html">Fieldbook</a>
@@ -6569,7 +6626,65 @@ select.input:dir(rtl) {
           <div class="grades-window__sun"></div>
           <div class="grades-window__row"><div class="grade-tile glass glass--clear"><span class="grade-tile__tag">Clear<b data-token-pct="--m-glass-alpha-clear"></b></span></div><div class="grade-tile glass glass--mist"><span class="grade-tile__tag">Mist<b data-token-pct="--m-glass-alpha"></b></span></div><div class="grade-tile glass glass--veil"><span class="grade-tile__tag">Veil<b data-token-pct="--m-glass-alpha-veil"></b></span></div><div class="grade-tile glass glass--cloud"><span class="grade-tile__tag">Cloud<b>solid</b></span></div></div>
         </div>
-        <div class="grade-notes"><div><h3>Clear</h3><p>Atmosphere only. It never carries text.</p></div><div><h3>Mist</h3><p>Cards and panels in the flow of the page.</p></div><div><h3>Veil</h3><p>Layers that float: the top bar, menus and toasts.</p></div><div><h3>Cloud</h3><p>Anything people read for long, and every fallback.</p></div></div>
+        <div class="grade-notes"><div><h3>Clear</h3><p>Atmosphere only. It never carries text.</p></div><div><h3>Mist</h3><p>The frosted surface on this navigation bar and the cards below it.</p></div><div><h3>Veil</h3><p>A denser surface for menus and toasts.</p></div><div><h3>Cloud</h3><p>Anything people read for long, and every fallback.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="animation" aria-labelledby="animation-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="animation-title">Animation</h2>
+          <p class="lede">Follow four easing curves through the same 600 milliseconds. Read across for elapsed time and up for distance travelled.</p>
+        </div>
+        <div class="curve-study">
+          <div class="curve-study__plots" id="curve-plots">
+            <article>
+              <h3>Fluid<span class="study__value" aria-hidden="true"></span></h3>
+              <svg viewBox="-8 -18 176 110" aria-hidden="true" style="--curve: var(--m-ease-fluid)">
+                <path id="curve-grid" class="curve-study__grid" d="M0 0H160V80H0ZM0 40H160M40 0V80M80 0V80M120 0V80"/>
+                <path class="curve-study__line" d="M0 80C35.2 0 57.6 0 160 0"/>
+                <g class="curve-study__cursor"><line y1="-12" y2="80"/><circle cy="80" r="4.5"/></g>
+              </svg>
+              <p>A panel arrives quickly, then slows as it finds its place.</p>
+            </article>
+            <article>
+              <h3>Spring<span class="study__value" aria-hidden="true"></span></h3>
+              <svg viewBox="-8 -18 176 110" aria-hidden="true" style="--curve: var(--m-ease-spring)">
+                <use href="#curve-grid"/>
+                <path class="curve-study__line" d="M0 80C54.4 -28.8 102.4 0 160 0"/>
+                <g class="curve-study__cursor"><line y1="-12" y2="80"/><circle cy="80" r="4.5"/></g>
+              </svg>
+              <p>A switch thumb travels just past its stop and settles back.</p>
+            </article>
+            <article>
+              <h3>Exit<span class="study__value" aria-hidden="true"></span></h3>
+              <svg viewBox="-8 -18 176 110" aria-hidden="true" style="--curve: var(--m-ease-exit)">
+                <use href="#curve-grid"/>
+                <path class="curve-study__line" d="M0 80C64 80 160 0 160 0"/>
+                <g class="curve-study__cursor"><line y1="-12" y2="80"/><circle cy="80" r="4.5"/></g>
+              </svg>
+              <p>A dismissed notification picks up speed on its way out.</p>
+            </article>
+            <article>
+              <h3>Linear<span class="study__value" aria-hidden="true"></span></h3>
+              <svg viewBox="-8 -18 176 110" aria-hidden="true" style="--curve: linear">
+                <use href="#curve-grid"/>
+                <path class="curve-study__line" d="M0 80L160 0"/>
+                <g class="curve-study__cursor"><line y1="-12" y2="80"/><circle cy="80" r="4.5"/></g>
+              </svg>
+              <p>A loading indicator turns at a constant speed.</p>
+            </article>
+          </div>
+          <div class="curve-study__controls" hidden>
+            <button class="btn btn--secondary" type="button" id="play-curves" aria-controls="curve-plots">
+              <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-play"></use></svg>Play all four
+            </button>
+            <div class="curve-study__time">
+              <label class="study__label" for="curve-time">Elapsed time <span class="study__value" aria-hidden="true"><span id="curve-time-value">180</span> / 600 ms</span></label>
+              <input class="slider" type="range" id="curve-time" min="0" max="600" step="1" value="180" aria-controls="curve-plots">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -6732,7 +6847,7 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
         </div>
       </div>
     </section>
-    <section class="wrap section section--tight" aria-labelledby="film-title">
+    <section class="wrap section section--tight" id="film" aria-labelledby="film-title">
       <figure class="film">
         <div class="film__screen">
           <video id="promo" width="1280" height="720" controls playsinline preload="none" poster="media/misty-poster.jpg"
@@ -6865,6 +6980,66 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
   grade.addEventListener("change", paintGrade);
   window.addEventListener("pageshow", paintGrade);
   paintGrade();
+
+  const curvePlots = $("#curve-plots");
+  if (typeof Element.prototype.animate === "function") {
+    const timeline = $("#curve-time");
+    const readout = $("#curve-time-value");
+    const duration = Number(timeline.max);
+    const curves = $$("article", curvePlots).map(card => {
+      const plot = $("svg", card);
+      const easing = getComputedStyle(plot).getPropertyValue("--curve").trim();
+      const dot = $("circle", plot).animate(
+        [{ transform: "translateY(0px)" }, { transform: "translateY(-80px)" }],
+        { duration, easing, fill: "both" }
+      );
+      dot.pause();
+      return { dot, name: $("h3", card).textContent, distance: $(".study__value", card) };
+    });
+
+    function seekCurves(time) {
+      timeline.value = String(time);
+      const elapsed = timeline.valueAsNumber;
+      const progress = elapsed / duration;
+      const positions = curves.map(({ dot, name, distance }) => {
+        dot.currentTime = elapsed;
+        const percent = Math.round(dot.effect.getComputedTiming().progress * 100);
+        distance.textContent = percent + "%";
+        return name + " " + percent + "%";
+      });
+      curvePlots.style.setProperty("--cursor-x", (160 * progress) + "px");
+      timeline.style.setProperty("--m-slider-fill", (100 * progress) + "%");
+      timeline.setAttribute("aria-valuetext", elapsed + " milliseconds. " + positions.join(", "));
+      readout.textContent = String(elapsed);
+    }
+
+    let playbackFrame = 0;
+    function stopCurves() {
+      cancelAnimationFrame(playbackFrame);
+      playbackFrame = 0;
+    }
+    timeline.addEventListener("input", () => {
+      stopCurves();
+      seekCurves(timeline.valueAsNumber);
+    });
+    $("#play-curves").addEventListener("click", () => {
+      stopCurves();
+      if (reduced()) return;
+      seekCurves(0);
+      const start = performance.now();
+      function advance(now) {
+        const elapsed = Math.min(duration, Math.max(0, Math.round(now - start)));
+        seekCurves(elapsed);
+        if (elapsed < duration) playbackFrame = requestAnimationFrame(advance);
+      }
+      playbackFrame = requestAnimationFrame(advance);
+    });
+    window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", stopCurves);
+    window.addEventListener("pagehide", stopCurves);
+    window.addEventListener("pageshow", () => seekCurves(timeline.valueAsNumber));
+    seekCurves(timeline.valueAsNumber);
+    $(".curve-study__controls").hidden = false;
+  }
 
   const sectionLinks = $$('.nav a[href^="#"]');
   const destinations = sectionLinks.map(link => $(link.hash));

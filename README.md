@@ -1,71 +1,78 @@
-# Misty Design Language
+<h1 align="center">Misty Design Language</h1>
+<p align="center"><em>See what you see.</em></p>
 
-**See what you see.** The most elegant design language for the future.
+<p align="center">
+  <a href="media/misty-in-motion.mp4"><img src="media/misty-poster.jpg" width="640" alt="Watch Misty in motion. Three blue glass sheets float around a pearl of light."></a>
+</p>
 
-Misty is made for clear, quiet interfaces: thin glass over a lit field, one hue, native type and motion that shows direction. This repository holds the standard, its reference stylesheet, one token file and a package generated from that file for each platform.
+<p align="center">
+  <a href="https://misty-beta.vercel.app/"><strong>Explore the demo</strong></a> &nbsp;·&nbsp;
+  <a href="standard/Misty_Design_Language_Standard_1_2.html">Read the standard</a> &nbsp;·&nbsp;
+  <a href="#build-with-misty">Build with Misty</a>
+</p>
 
-See more at misty-beta.vercel.app.
+Misty starts with one hue. It tints the light behind a toolbar, the ink on a page and the glass between them. Four material grades control how much of the field shows through. Native type and directional motion help people keep their place as the interface changes.
 
-- **Version:** 1.2, stable. Annexes A and B are provisional.
-- **Scope:** 251 requirements in 32 clauses and two annexes, and 38 components.
-- **Platforms:** web, Apple platforms, Android, Windows, Flutter, React Native and other JavaScript runtimes.
-- **Accessibility:** WCAG 2.2 at Level AA.
+**Edition 1.2** is stable, with 38 components and 251 requirements across 32 clauses and two annexes. The accessibility target is WCAG 2.2 AA. The platform and internationalisation annexes are provisional.
 
-## Contents
+## Explore the demo
 
-```text
-index.html   The Misty home page, the front page of the Misty web
-standard/    The current and previous editions, each a self-contained HTML file
-sample/      Fieldbook, a sample product site made with Misty
-brand/       The four options for the Misty mark, as a page and as SVG files
-tokens/      misty.tokens.json, the source of every value
-platforms/   Packages generated from the token file
-  web/       misty.css (tokens and components) and misty-tokens.css (tokens only)
-  apple/     Swift package for iOS, iPadOS, macOS, watchOS, tvOS and visionOS
-  android/   Kotlin for Jetpack Compose, and colour resources for views
-  windows/   C# for WinUI 3, WPF and .NET MAUI, and a XAML resource dictionary
-  flutter/   Dart package for Flutter on any platform
-  js/        ES module for React Native and other JavaScript runtimes
-  dtcg/      Light and dark token files for design tools
-scripts/     The token build, the stylesheet checks, the contrast check and the site build
-```
+Open `index.html` in a browser to explore locally. The pages embed their styles. Keep the `media/` folder beside the homepage for offline film playback.
 
-## Read the standard
-
-The [1.2 standard](standard/Misty_Design_Language_Standard_1_2.html) works offline. Open the palette in its top bar to change hue and appearance. Under **Panel material**, choose **Solid** or **Frosted**. The [material lab](standard/Misty_Design_Language_Standard_1_2.html#materials-lab) lets you tune opacity, blur and saturation on a sample. Clause 31 collects the numbered requirements for a product review. The [1.1 standard](standard/Misty_Design_Language_Standard_1_1.html) is also available for reviews that cite that edition.
-
-## Design concept
-
-A person should be able to change the shape of a workspace, move from cover art to lyrics, or open a photograph full screen and keep their place. A single hue connects the surfaces. Thin glass groups nearby controls, while Cloud gives reading and editing a solid ground. When motion or transparency is reduced, headings, selection and focus still show where the person is. [Design concept, clause 2.6](standard/Misty_Design_Language_Standard_1_2.html#design-concept)
-
-| Reference project | Design decision in 1.2 |
+| Study | What to try |
 | --- | --- |
-| FlashCard | Keep a draft and its selection while its inspector moves beside or below the editor. |
-| Jellyfesh | Let cover art supply one hue. A person’s fixed hue takes precedence, and missing art has a predictable fallback. |
-| ShoalNex | Track the item as someone browses full-screen photos. On return, bring the current thumbnail into view and restore keyboard focus to it. |
+| [Glass lab](index.html#glass-lab) | Pull the sheets apart, pick a hue and switch the top layer between Clear, Mist, Veil and Cloud. |
+| [Animation](index.html#animation) | Scrub the same 600 ms across Fluid, Spring, Exit and Linear. Stop halfway to compare how far each dot has travelled. |
+| [Component playground](index.html#components) | Filter the controls, edit a field and preview feedback. |
+| [Fieldbook](sample/index.html) | Follow a walk across Black Down. Select a stop on the map to read its journal entry. |
+| [Misty in motion](index.html#film) | Watch the materials separate, change hue and settle in a 24-second film. |
 
-Try the editable workspace and follow the player and gallery reviews in [clause 25.5](standard/Misty_Design_Language_Standard_1_2.html#product-patterns).
+## Inside the standard
 
-## The Misty web
+The standard opens offline. In its palette, change the hue, appearance or panel material. The material lab lets you tune opacity, blur and saturation independently. Clause 31 gathers the numbered requirements for product reviews. [Material lab](standard/Misty_Design_Language_Standard_1_2.html#materials-lab) · [Review checklist](standard/Misty_Design_Language_Standard_1_2.html#checklist-review) · [Previous edition](standard/Misty_Design_Language_Standard_1_1.html)
 
-Open `index.html` for the front page. It links to the standard, to Fieldbook and to the mark options, and its hue slider recolours the whole page live. Like the standard, each page is one self-contained file that embeds `platforms/web/misty.css`, so the pages work offline and from any static host.
+Three product patterns informed the design. In FlashCard, a draft keeps its selection when an inspector moves. In Jellyfesh, cover art supplies a hue until the listener chooses one. In ShoalNex, closing a full-screen photo returns keyboard focus to the current thumbnail. [Design concept](standard/Misty_Design_Language_Standard_1_2.html#design-concept) · [Product patterns](standard/Misty_Design_Language_Standard_1_2.html#product-patterns)
 
-- `sample/index.html` is Fieldbook, a fictional notebook app for walks. It uses only Misty’s components and tokens, with its own fixed hue of 165, to show what a product built with Misty looks like.
-- `brand/index.html` compares four directions for the mark: Daybreak, the recommendation, Grades, Monogram and Field. Each is shown at every size, on light and dark, and can be tried in the page’s own top bar. The SVG files are in `brand/marks/`.
+The brand gallery compares Daybreak, Grades, Monogram and Field at different sizes and in both appearances. Try a mark in the gallery’s own toolbar. [Mark gallery](brand/index.html) · [SVG originals](brand/marks/)
 
-After changing `platforms/web/misty.css`, run `python3 scripts/build_site.py` to refresh the copy embedded in each page.
+## Build with Misty
 
-## Use Misty
-
-Every package computes theme colours from the hue while the app runs, with the conversion browsers use, so a hue chosen on one device matches on every other. Annex A of the standard maps each token family, material and setting to each platform.
-
-### Web
+For a web project, link the reference stylesheet and choose a hue on the root element. The same Mist classes used on the demo’s navbar also work on a card.
 
 ```html
-<link rel="stylesheet" href="platforms/web/misty.css">
+<!doctype html>
+<html lang="en" style="--m-hue: 165">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Field notes</title>
+    <link rel="stylesheet" href="platforms/web/misty.css">
+  </head>
+  <body>
+    <main class="wrap section">
+      <article class="card glass glass--mist">
+        <h1>Field notes</h1>
+        <p>Low cloud over Black Down this morning.</p>
+      </article>
+    </main>
+  </body>
+</html>
 ```
 
-`misty.css` holds the tokens and every component class that clause 30 lists. For tokens alone, use `misty-tokens.css`. Set `--m-hue` on the root element to change the hue. For a right-to-left language, set `dir="rtl"` on the root element too: the layout mirrors on its own.
+Every platform package reads from the same token source. Native packages resolve a hue at runtime using the browser colour conversion. Design-tool exports include light and dark values at hue 250. [Source tokens](tokens/misty.tokens.json) · [Platform mappings](standard/Misty_Design_Language_Standard_1_2.html#platforms-packages)
+
+| Platform | Integration |
+| --- | --- |
+| Web | [Components and tokens](platforms/web/misty.css) · [Tokens only](platforms/web/misty-tokens.css) |
+| Apple platforms | [Swift package](platforms/apple/) |
+| Android | [Jetpack Compose](platforms/android/MistyTokens.kt) · [View resources](platforms/android/res/) |
+| Windows | [C# tokens](platforms/windows/MistyTokens.cs) · [XAML resource dictionary](platforms/windows/MistyTokens.xaml) |
+| Flutter | [Dart package](platforms/flutter/) |
+| React Native and JavaScript | [ES module](platforms/js/misty-tokens.mjs) |
+| Design tools | [Light tokens](platforms/dtcg/light.tokens.json) · [Dark tokens](platforms/dtcg/dark.tokens.json) |
+
+<details>
+<summary><strong>Platform setup and code examples</strong></summary>
 
 ### Apple platforms
 
@@ -141,35 +148,40 @@ If your bundler doesn’t resolve `.mjs` files, rename the file to `misty-tokens
 
 `platforms/dtcg/light.tokens.json` and `dark.tokens.json` follow the Design Tokens Format Module 2025.10, resolved at hue 250, for tools that import that format.
 
-## Languages and writing direction
+</details>
 
-Set `lang` and `dir` on the root element, and on any part in another language or direction. The stylesheet uses logical properties, mirrors directional glyphs and reaches for faces drawn for Japanese, Chinese and Korean text according to the language tag. Annex B of the standard covers scripts, growth in translation and locale formats. It includes a right-to-left preview of every page and a pseudo-localisation sample for testing.
+### Languages and writing direction
 
-## Change a token
+Set `lang` and `dir` on the root element, and on passages that use a different language or direction. Logical spacing mirrors the layout, directional glyphs turn and language tags select typefaces for Japanese, Chinese and Korean text. Annex B includes a right-to-left preview and a pseudo-localisation sample for testing text growth. [Writing direction](standard/Misty_Design_Language_Standard_1_2.html#international-direction) · [Translation and text growth](standard/Misty_Design_Language_Standard_1_2.html#international-growth)
 
-1. Edit `tokens/misty.tokens.json`.
-2. Run `python3 scripts/build_tokens.py` to regenerate every package.
-3. Make the same change in `:root` in `platforms/web/misty.css` and in the current edition’s embedded stylesheet, then run `python3 scripts/build_tokens.py --check platforms/web/misty.css`.
-4. Run `python3 scripts/verify_contrast.py`. It checks every pair in the contrast table at all 360 hues in both appearances, as COL-10 requires, and fails if any pair drops below its threshold.
+## Maintain the reference
 
-The scripts need Python 3.8 or later and no other packages.
+After editing the source token file, update the matching declarations in the web reference stylesheet and the current standard’s embedded stylesheet. From the repository root, regenerate the packages, check the stylesheet, verify contrast and refresh the demo pages.
 
-## Claim conformance
+```sh
+python3 scripts/build_tokens.py
+python3 scripts/build_tokens.py --check platforms/web/misty.css
+python3 scripts/verify_contrast.py
+python3 scripts/build_site.py
+```
 
-A product that meets every MUST at a level says so in the form GEN-04 gives: “Misty 1.2 Core, reviewed 22 November 2026”. A native product names its platform too, as PLT-11 suggests: “Misty 1.2 Complete on Android, reviewed 22 November 2026”. There’s no certification and no badge; see `TRADEMARKS.md`.
+The scripts use Python 3.8 or later and the standard library. The contrast check tests each specified foreground and background pair at all 360 hues in light and dark appearances. For a stylesheet-only change, `build_site.py` refreshes the homepage, Fieldbook and the brand gallery. [Contributing](CONTRIBUTING.md) · [Changelog](CHANGELOG.md)
 
-## Licences
+## Conformance and licences
 
-| Material | Licence |
+A conformance claim names the edition, level and review date. A native claim can also name the platform. For example, “Misty 1.2 Complete on Android, reviewed 22 November 2026” records a review against every MUST at that level. [Conformance](standard/Misty_Design_Language_Standard_1_2.html#overview-conformance) · [Trademark policy](TRADEMARKS.md)
+
+| Material | Terms |
 | --- | --- |
-| Text and figures of the standard, including the design concept and product patterns | CC BY-ND 4.0, with a permission for unofficial translations |
+| Standard text and figures, including design concepts and product patterns | CC BY-ND 4.0, with permission for unofficial translations |
 | Stylesheet, scripts, tokens, icons and platform packages | Apache License 2.0 |
-| The name Misty, the mark and the conformance levels | Trademark policy |
-| This README and the other documents | CC BY-ND 4.0 |
+| README and other documentation | CC BY-ND 4.0 |
+| Misty name, mark and conformance levels | Trademark policy |
 
-`LICENSE.md` explains what each licence allows and gives the translation permission in full. `TRADEMARKS.md` sets out how the name and the mark may be used. `REUSE.toml` records the licence of every path in machine-readable form.
+The licence describes the translation permission in full. Per-file declarations are available in REUSE format. [Licences](LICENSE.md) · [REUSE declarations](REUSE.toml) · [Notice](NOTICE)
 
-## Before you publish
+<details>
+<summary><strong>Before publishing a release</strong></summary>
 
 1. Check the permission contact in `TRADEMARKS.md`.
 2. Choose one of the four mark options in `brand/`. Until then, the pages keep the 1.0 mark.
@@ -178,6 +190,4 @@ A product that meets every MUST at a level says so in the form GEN-04 gives: “
 5. Build the Swift, Kotlin, Dart and C# packages once in their own toolchains. They’re generated code and haven’t been compiled yet.
 6. Have a lawyer review `LICENSE.md` and `TRADEMARKS.md`.
 
-## Contributing
-
-See `CONTRIBUTING.md`.
+</details>
