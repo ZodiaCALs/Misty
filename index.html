@@ -6017,7 +6017,281 @@ select.input:dir(rtl) {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
 
-.hero .display { max-width: 11ch; }
+/* The overview pairs a live colour specimen with direct paths into the reference. */
+.ambient__glow { opacity: .48; }
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .ambient__glow { display: none; }
+}
+.topbar { padding: .75rem var(--m-gutter) 0; }
+.topbar__inner {
+  max-width: calc(var(--m-page) - 2 * var(--m-gutter));
+  height: 3.75rem;
+  padding-inline: var(--m-s4);
+  background-color: var(--m-cloud);
+  border: 1px solid var(--m-line);
+  border-radius: var(--m-r-full);
+  corner-shape: round;
+}
+.mobile-menu { --m-alpha: .84; }
+.brand { font-size: 1.125rem; margin-inline-end: var(--m-s3); }
+.nav a, .topbar__actions .btn, .hero__actions .btn {
+  border-radius: var(--m-r-full);
+  corner-shape: round;
+}
+.mobile-menu { top: 5rem; }
+@media (forced-colors: active) {
+  .glass { background: Canvas; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid CanvasText; }
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-block: clamp(1.5rem, 4vw, 4rem) var(--m-s5);
+  padding-block: var(--m-s6);
+}
+.intro h1 {
+  margin-block: var(--m-s5);
+  font-size: clamp(3rem, 1.75rem + 6vw, 6.75rem);
+  font-weight: 650;
+  font-optical-sizing: auto;
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+.intro h1 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.07em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.035em;
+  color: var(--m-accent-text);
+}
+.intro .lede { max-width: 36ch; line-height: 1.55; }
+.intro .hero__actions { justify-content: center; margin-block-start: var(--m-s6); }
+.film {
+  overflow: hidden;
+  border: 1px solid var(--m-line);
+  border-radius: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--m-cloud);
+  box-shadow: var(--m-shadow-2);
+}
+.film__screen { position: relative; background: #101b32; color: #fff; }
+.film video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; }
+.film__play {
+  position: absolute;
+  inset-inline-start: 1rem;
+  inset-block-end: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .6rem 1rem .6rem .75rem;
+  border: 1px solid #fff9;
+  border-radius: var(--m-r-full);
+  min-height: 2.75rem;
+  color: #13213c;
+  background: #eef6ff;
+  font-weight: 650;
+  cursor: pointer;
+}
+.film__play .mi { width: 1.1rem; height: 1.1rem; }
+.film__play:hover { background: white; }
+.film__caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: .75rem;
+  padding: .85rem 1.2rem;
+  font-size: .9rem;
+}
+.film__caption a { color: var(--m-accent-text); font-weight: 600; text-decoration: underline; text-underline-offset: .18em; }
+.film__duration { margin-inline-start: .5rem; color: var(--m-ink-70); font: .8rem var(--m-font-mono); }
+.study {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(16rem, 1fr);
+  overflow: hidden;
+  border-radius: var(--m-r-2xl);
+  border: 1px solid var(--m-line);
+  background: var(--m-cloud);
+}
+.study__field {
+  --spacing: 36px;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  min-height: clamp(19rem, 27vw, 24rem);
+  overflow: hidden;
+  cursor: ns-resize;
+  touch-action: pan-x pinch-zoom;
+  user-select: none;
+  background:
+    radial-gradient(ellipse at 20% 90%, var(--m-aurora-3), transparent 60%),
+    radial-gradient(ellipse at 90% 16%, var(--m-aurora-2), transparent 66%),
+    var(--m-aurora-1);
+}
+.study__field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .36;
+  background-image: radial-gradient(var(--m-ink-50) .8px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: linear-gradient(145deg, transparent, black 85%);
+}
+.study__field::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  bottom: 9%;
+  width: 42%;
+  height: 11%;
+  translate: -50%;
+  border-radius: 50%;
+  background: oklch(.35 .10 var(--m-hue) / .24);
+  filter: blur(16px);
+}
+.study__plate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(49%, 16rem);
+  aspect-ratio: 1;
+  border-radius: 18%;
+  transform: translate(-50%, -50%) translateY(var(--offset)) rotateX(55deg) rotateZ(-36deg);
+}
+.study__plate--base {
+  --offset: calc(.6rem + var(--spacing));
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, #fff4 4px, transparent 5px),
+    linear-gradient(125deg, oklch(.86 .12 calc(var(--m-hue) - 48)), oklch(.56 .18 var(--m-hue)) 55%, oklch(.42 .14 calc(var(--m-hue) + 30)));
+  box-shadow: inset 2px 2px 4px #fffc, 0 7px oklch(.38 .12 var(--m-hue)), -10px 15px 20px oklch(.32 .09 var(--m-hue) / .28);
+}
+.study__plate--tint {
+  --offset: 0px;
+  background: linear-gradient(125deg, oklch(.84 .14 calc(var(--m-hue) - 68) / .78), oklch(.78 .08 var(--m-hue) / .3) 55%, oklch(.68 .15 calc(var(--m-hue) + 45) / .68));
+  border: 2px solid #fffb;
+  box-shadow: inset -4px -6px 12px #fff6, 0 4px oklch(.61 .12 var(--m-hue) / .8);
+}
+.study__light {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(15%, 5rem);
+  aspect-ratio: 1;
+  translate: 0 calc(-.5 * var(--spacing));
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 23%, #fff9e8, #ecc696 35%, #b57677 70%, #8e8fb9);
+  box-shadow: 0 12px 12px -8px oklch(.3 .12 var(--m-hue) / .6);
+}
+.study__plate--sample {
+  --offset: calc(-.6rem - var(--spacing));
+  border: 2px solid var(--m-glass-edge);
+  background-image: linear-gradient(120deg, var(--m-glass-edge-soft), transparent 30% 66%, var(--m-glass-edge-soft));
+  box-shadow: inset 1px 2px 3px #fffa, inset -4px -4px 8px #fff4, 0 4px 1px oklch(.70 .07 var(--m-hue) / .7), var(--m-shadow-2);
+}
+.study__controls { display: grid; align-content: center; gap: 1.25rem; padding: clamp(1.25rem, 3vw, 2.5rem); }
+.study__group { display: grid; gap: .45rem; min-width: 0; }
+.study__label { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; font-size: .875rem; font-weight: 600; }
+.study__group select { min-height: 2.75rem; }
+.study__group .slider { width: 100%; min-height: 2.5rem; }
+.guide__card strong { display: block; font-size: 1.0625rem; line-height: 1.3; }
+.study__value { color: var(--m-ink-70); font: .8125rem/1.5 var(--m-font-mono); }
+.study__controls .hue__presets { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem; margin: 0; }
+.study__controls .hue-dot { width: 2.75rem; height: 2.75rem; margin: 0; border: .55rem solid transparent; background-clip: padding-box; box-shadow: none; }
+.study__controls .hue-dot[aria-pressed="true"] { outline: 1px solid var(--m-accent-text); outline-offset: -.2rem; }
+.study__controls .hue-dot:focus-visible { outline: 2px solid var(--m-accent-text); outline-offset: 1px; }
+.hue-dot[aria-pressed="true"]::before {
+  content: "";
+  display: block;
+  width: .55rem;
+  height: .32rem;
+  margin: -.08rem auto 0;
+  border-left: 2px solid #162330;
+  border-block-end: 2px solid #162330;
+  transform: rotate(-45deg);
+}
+.guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--m-s3); }
+.guide__card {
+  display: flex;
+  align-items: center;
+  gap: var(--m-s3);
+  padding: var(--m-s5);
+  border: 1px solid var(--m-line);
+  border-radius: var(--m-r-xl);
+}
+.guide__card:is(:hover, :focus-visible) { border-color: var(--m-accent-text); }
+.guide__card small { color: var(--m-ink-70); font-size: .8125rem; }
+.guide__card > .mi { flex: none; margin-inline-start: auto; width: 1rem; }
+.guide__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--m-r-lg);
+  background-color: var(--m-accent-soft);
+  color: var(--m-accent-text);
+}
+.nav a { white-space: nowrap; }
+.nav a[aria-current="location"] {
+  position: relative;
+  color: var(--m-ink-90);
+}
+.nav a[aria-current="location"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: .25rem;
+  width: 1.25rem;
+  margin-inline: auto;
+  border-block-end: 2px solid var(--m-accent-text);
+}
+@media (max-width: 900px) {
+  html { scroll-padding-top: 8rem; }
+  .topbar { padding: .5rem var(--m-gutter) 0; }
+  .topbar__inner {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0;
+    padding: .35rem .5rem .3rem;
+    border-radius: var(--m-r-xl);
+  }
+  .topbar__actions .nav-cta { display: inline-flex; }
+  .nav {
+    order: 1;
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    margin: .2rem 0 0;
+    padding: .18rem;
+    scrollbar-width: thin;
+    overscroll-behavior-inline: contain;
+  }
+  .nav a { flex: none; min-height: 2.75rem; display: grid; place-content: center; }
+}
+.component-filters { display: flex; flex-wrap: wrap; gap: var(--m-s2); margin-block-end: var(--m-s4); }
+.references-title { margin-block-start: var(--m-s5); }
+.bento:has(> [hidden]) { grid-template-columns: minmax(0, 1fr); }
+.catalogue-link { color: var(--m-accent-text); text-decoration: underline; }
+.concept-link { margin-block: calc(-1 * var(--m-s3)) var(--m-s5); }
+.player-example { margin-block-start: var(--m-s4); border: 1px solid var(--m-line); border-radius: var(--m-r-lg); }
+.player-example summary { padding: var(--m-s4); font-weight: 600; cursor: pointer; }
+.player-example .app { width: min(22rem, calc(100% - 2rem)); margin: 0 auto var(--m-s5); transform: none; }
+.app__controls .app__play { color: var(--m-on-accent); }
+@media (max-width: 760px) {
+  .guide { grid-template-columns: 1fr; }
+  .intro { padding-block: var(--m-s3); }
+  .guide__card { padding: var(--m-s4); }
+  .study { grid-template-columns: 1fr; }
+  .study__field { min-height: 18rem; }
+}
+@media (forced-colors: active) {
+  .study__plate { border: 2px solid CanvasText; }
+  .nav a[aria-current="location"]::after { border-color: LinkText; }
+  .study__controls .hue-dot[aria-pressed="true"]::before { border-color: ButtonText; }
+}
+
 .hue__panel .swatches { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--m-s3); }
 .grades-window {
   position: relative;
@@ -6106,8 +6380,9 @@ select.input:dir(rtl) {
 })();</script>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><div class="ambient__glow"></div></div>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient" aria-hidden="true"><div class="ambient__glow"></div><div class="ambient__grain"></div></div>
+
 <svg id="mi-sprite" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="mi-brand-grad" x1="0" y1="0" x2="1" y2="1">
@@ -6175,75 +6450,81 @@ select.input:dir(rtl) {
     <symbol id="mi-case" viewBox="0 0 48 48"><rect x="8" y="15" width="32" height="24" rx="3"/><path d="M19 15v-3a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3M8 24h32"/></symbol>
   </svg>
   <header class="topbar">
-    <div class="topbar__inner glass glass--veil">
+    <div class="topbar__inner">
       <a class="brand" href="index.html" aria-label="Misty, home"><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg><span>Misty</span></a>
-      <nav class="nav" aria-label="Main"><a href="standard/Misty_Design_Language_Standard_1_2.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
+      <nav class="nav" aria-label="Main">
+        <a href="#glass-lab">Glass lab</a>
+        <a href="#principles">Foundations</a>
+        <a href="#components">Components</a>
+        <a href="#platforms">Develop</a>
+        <a href="sample/index.html">Fieldbook</a>
+      </nav>
       <div class="topbar__actions">
-        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch appearance"><svg class="mi icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg><svg class="mi icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-moon"></use></svg></button><a class="btn btn--secondary btn--sm nav-cta" href="README.md">Get Misty</a>
-        <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-menu"></use></svg></button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch appearance"><svg class="mi icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg><svg class="mi icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-moon"></use></svg></button><a class="btn btn--secondary btn--sm nav-cta" href="standard/Misty_Design_Language_Standard_1_2.html">Standard 1.2</a>
       </div>
     </div>
   </header>
-  <nav class="mobile-menu glass glass--veil" id="site-menu" aria-label="Menu" hidden><a href="standard/Misty_Design_Language_Standard_1_2.html">Standard</a><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark</a></nav>
 
   <main id="main" class="page-main" tabindex="-1">
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow"><span class="eyebrow__dot"></span>Misty 1.2</p>
-          <h1 class="display">See what you see</h1>
-          <p class="lede hero__lede">One hue lights the field. Thin glass frames the controls. The note you are writing, the song you are playing or the photograph you have opened stays in place as the interface changes around it.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary btn--lg" href="standard/Misty_Design_Language_Standard_1_2.html">Read the standard <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
-            <a class="btn btn--secondary btn--lg" href="standard/Misty_Design_Language_Standard_1_2.html#design-concept">Read the design concept</a>
-          </div>
-          <div class="hero__meta">
-            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>251 requirements</span>
-            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-grid"></use></svg>38 components</span>
-            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-globe"></use></svg>6 platforms</span>
-            <span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-accessibility"></use></svg>WCAG 2.2 AA</span>
-          </div>
-        </div>
-        <div class="hero__stage">
-          <div class="stage-glow" aria-hidden="true"></div>
-          <div class="app glass glass--mist">
-            <div class="app__bar"><span class="app__label"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-volume"></use></svg>Now playing</span><span class="app__label">Still Air</span></div>
-            <div class="app__art" aria-hidden="true"><div class="app__haze"></div><span class="app__art-label">Still Air</span></div>
-            <div class="app__body">
-              <div class="app__title-row">
-                <div><p class="app__title">A Quiet Field</p><p class="app__artist">Rowan Vale</p></div>
-                <button class="icon-btn app__heart" type="button" aria-pressed="false" aria-label="Favourite" data-press-toggle><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-heart"></use></svg></button>
-              </div>
-              <div class="progress app__progress" role="progressbar" aria-label="Playback position" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><span style="width:38%"></span></div>
-              <div class="app__times"><span>1:12</span><span>3:08</span></div>
-              <div class="app__controls">
-                <button class="icon-btn" type="button" aria-label="Previous track"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-skip-back"></use></svg></button>
-                <button class="icon-btn app__play" type="button" aria-label="Play" data-play><svg class="mi play-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-play"></use></svg><svg class="mi pause-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-pause"></use></svg></button>
-                <button class="icon-btn" type="button" aria-label="Next track"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-skip-forward"></use></svg></button>
-              </div>
-              <div class="app__foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-play-status>Paused</span></div>
-            </div>
-          </div>
-          <div class="stage-float stage-float--grades glass glass--veil">
-            <h3>Glass</h3>
-            <div class="grade-list">
-              <div class="grade-row"><i style="--a: var(--m-glass-alpha-clear)"></i>Clear<b data-token-pct="--m-glass-alpha-clear">30%</b></div>
-              <div class="grade-row"><i style="--a: var(--m-glass-alpha)"></i>Mist<b data-token-pct="--m-glass-alpha">42%</b></div>
-              <div class="grade-row"><i style="--a: var(--m-glass-alpha-veil)"></i>Veil<b data-token-pct="--m-glass-alpha-veil">62%</b></div>
-              <div class="grade-row"><i style="--a: 1"></i>Cloud<b>solid</b></div>
-            </div>
-          </div>
-          <div class="stage-float stage-float--hue glass glass--veil"><i></i>Hue <b><span data-hue-number>250</span>°</b></div>
-        </div>
+    <section class="intro wrap" aria-labelledby="intro-title">
+      <p class="eyebrow">Misty Design Language · 1.2</p>
+      <h1 id="intro-title">See what<br><em>you see.</em></h1>
+      <p class="lede">A design language for quiet interfaces. One hue shapes the colour, glass and light across every platform.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="#glass-lab">Try the glass lab <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
+        <a class="btn btn--secondary btn--lg" href="standard/Misty_Design_Language_Standard_1_2.html">Read the standard</a>
       </div>
     </section>
+
+    <section class="section section--tight" id="glass-lab" aria-labelledby="lab-title">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="lab-title">Glass lab</h2>
+          <p class="lede">Drag the stack up to separate the layers, or use the spacing slider. Change the top sheet to see how each grade filters the light.</p>
+        </div>
+        <figure class="study">
+          <div class="study__field" aria-hidden="true">
+            <div class="study__plate study__plate--base"></div>
+            <div class="study__plate study__plate--tint"></div>
+            <div class="study__light"></div>
+            <div class="study__plate study__plate--sample glass glass--mist"></div>
+          </div>
+          <figcaption class="study__controls">
+            <div class="study__group">
+              <label class="study__label" for="layer-spacing">Layer spacing <span class="study__value" id="spacing-value" aria-hidden="true">36 px</span></label>
+              <input class="slider" type="range" id="layer-spacing" min="0" max="64" step="1" value="36" aria-valuetext="36 pixels">
+            </div>
+            <div class="study__group">
+              <div class="study__label">Theme hue <span class="study__value"><span data-hue-number>250</span>°</span></div>
+              <div class="hue__presets" role="group" aria-label="Theme hue"><button class="hue-dot" type="button" data-hue-preset="250" style="--dot: oklch(0.7 0.16 250)" aria-label="Mist, hue 250" aria-pressed="true"></button><button class="hue-dot" type="button" data-hue-preset="165" style="--dot: oklch(0.7 0.16 165)" aria-label="Sage, hue 165" aria-pressed="false"></button><button class="hue-dot" type="button" data-hue-preset="45" style="--dot: oklch(0.7 0.16 45)" aria-label="Clay, hue 45" aria-pressed="false"></button><button class="hue-dot" type="button" data-hue-preset="345" style="--dot: oklch(0.7 0.16 345)" aria-label="Rose, hue 345" aria-pressed="false"></button><button class="hue-dot" type="button" data-hue-preset="300" style="--dot: oklch(0.7 0.16 300)" aria-label="Violet, hue 300" aria-pressed="false"></button><button class="hue-dot" type="button" data-hue-preset="210" style="--dot: oklch(0.7 0.16 210)" aria-label="Sky, hue 210" aria-pressed="false"></button></div>
+            </div>
+            <div class="study__group">
+              <label class="study__label" for="study-grade">Glass grade</label>
+              <select class="input" id="study-grade">
+                <option value="clear">Clear</option>
+                <option value="mist" selected>Mist</option>
+                <option value="veil">Veil</option>
+                <option value="cloud">Cloud</option>
+              </select>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <nav class="wrap guide" aria-label="Explore the design language">
+      <a href="#principles" class="guide__card glass glass--mist"><span class="guide__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-layers"></use></svg></span><span><strong>Foundations</strong><small>Principles, colour and materials</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
+      <a href="#components" class="guide__card glass glass--mist"><span class="guide__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-grid"></use></svg></span><span><strong>Components</strong><small>Try controls and their states</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
+      <a href="#platforms" class="guide__card glass glass--mist"><span class="guide__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-code"></use></svg></span><span><strong>Develop</strong><small>Platform packages and code</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
+    </nav>
 
     <section class="section section--tight" id="principles">
       <div class="wrap">
         <div class="section__head reveal">
-          <div><p class="eyebrow">Principles</p><h2>Four principles, in a fixed order</h2></div>
+          <div><p class="eyebrow">Foundations</p><h2>Design principles</h2></div>
           <p class="lede">When two rules pull in different directions, the earlier principle wins. That’s how Misty stays calm without getting in anyone’s way.</p>
         </div>
+        <p class="concept-link"><a class="link-arrow" href="standard/Misty_Design_Language_Standard_1_2.html#design-concept">Read the design concept <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a></p>
         <div class="principles">
           <article class="principle glass glass--mist reveal"><div class="principle__top"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-accessibility"></use></svg><span class="principle__num">1</span></div><h3>Access</h3><p>Everyone can see, reach and use every part of the interface, with any input and at any size.</p></article>
           <article class="principle glass glass--mist reveal" style="--reveal-delay: 55ms"><div class="principle__top"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-eye"></use></svg><span class="principle__num">2</span></div><h3>Clarity</h3><p>Text sits on surfaces solid enough to read, and every state shows in more than colour.</p></article>
@@ -6256,7 +6537,7 @@ select.input:dir(rtl) {
     <section class="section section--tight" id="hue">
       <div class="wrap">
         <div class="section__head reveal">
-          <div><p class="eyebrow">One hue</p><h2>Choose one number. Get every colour.</h2></div>
+          <div><p class="eyebrow">One hue</p><h2>Build a palette from one hue</h2></div>
           <p class="lede">Accent, field, ink, glass and shadow all come from a single hue in OKLCH. Move the slider and this whole page follows.</p>
         </div>
         <div class="hue">
@@ -6289,6 +6570,71 @@ select.input:dir(rtl) {
           <div class="grades-window__row"><div class="grade-tile glass glass--clear"><span class="grade-tile__tag">Clear<b data-token-pct="--m-glass-alpha-clear"></b></span></div><div class="grade-tile glass glass--mist"><span class="grade-tile__tag">Mist<b data-token-pct="--m-glass-alpha"></b></span></div><div class="grade-tile glass glass--veil"><span class="grade-tile__tag">Veil<b data-token-pct="--m-glass-alpha-veil"></b></span></div><div class="grade-tile glass glass--cloud"><span class="grade-tile__tag">Cloud<b>solid</b></span></div></div>
         </div>
         <div class="grade-notes"><div><h3>Clear</h3><p>Atmosphere only. It never carries text.</p></div><div><h3>Mist</h3><p>Cards and panels in the flow of the page.</p></div><div><h3>Veil</h3><p>Layers that float: the top bar, menus and toasts.</p></div><div><h3>Cloud</h3><p>Anything people read for long, and every fallback.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section section--tight" id="components">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <div><h2>Component playground</h2></div>
+          <p class="lede">Edit a field, change a setting or preview feedback. <a class="catalogue-link" href="standard/Misty_Design_Language_Standard_1_2.html#components-gallery">Browse all 38 components</a>.</p>
+        </div>
+        <div class="component-filters" role="group" aria-label="Filter component examples">
+          <button class="chip" type="button" aria-pressed="true" data-filter="all">All examples</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="actions">Actions</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="selection">Selection</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="feedback">Feedback</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="input">Text input</button>
+          <button class="chip" type="button" aria-pressed="false" data-filter="media">Media</button>
+        </div>
+        <div class="bento">
+          <div data-example="actions" class="bento__item glass glass--mist reveal">
+            <div class="bento__head"><h3>Actions</h3><span>.btn .chip</span></div>
+            <div class="demo-row"><button class="btn btn--secondary" type="button" data-toast="Draft saved" data-toast-body="You can pick it up on any device.">Save draft</button><button class="btn btn--danger" type="button" data-toast="Note deleted" data-toast-body="It’s in Recently deleted for 30 days." data-toast-tone="info">Delete note</button></div>
+          </div>
+          <div data-example="selection" class="bento__item glass glass--mist reveal" style="--reveal-delay: 55ms">
+            <div class="bento__head"><h3>Selection</h3><span>.segmented .switch</span></div>
+            <div class="segmented" role="group" aria-label="Period"><button type="button" aria-pressed="true">Week</button><button type="button" aria-pressed="false">Month</button><button type="button" aria-pressed="false">Year</button></div>
+            <div class="demo-stack">
+              <div class="switch-row"><span id="sync-label">Sync over mobile data</span><button class="switch" type="button" role="switch" aria-checked="true" aria-labelledby="sync-label"><span class="switch__thumb"></span></button></div>
+              <label class="check"><input type="checkbox" checked> Show previews</label>
+            </div>
+          </div>
+          <div data-example="feedback" class="bento__item glass glass--mist reveal">
+            <div class="bento__head"><h3>Feedback</h3><span>.callout .progress</span></div>
+            <div class="callout callout--accent"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg><div class="callout__body"><span class="callout__title">New in 1.2</span><a href="standard/Misty_Design_Language_Standard_1_2.html#product-patterns">Try the workspace and explore the player and gallery patterns.</a></div></div>
+            <div class="demo-stack"><div class="row"><span class="small">Uploading four photos</span><span class="small muted nums" style="margin-inline-start:auto">68%</span></div><div class="progress" role="progressbar" aria-label="Uploading four photos" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><span style="width:68%"></span></div></div>
+          </div>
+          <div data-example="input" class="bento__item glass glass--mist reveal" style="--reveal-delay: 55ms">
+            <div class="bento__head"><h3>Text input</h3><span>.field .input</span></div>
+            <div class="field" data-validate data-toast-title="Address validated" data-toast-body="The invitation preview is ready.">
+              <label class="label" for="invite-email">Email address</label>
+              <input class="input" id="invite-email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="invite-hint">
+              <p class="error-text" id="invite-error" hidden><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-error"></use></svg>Enter an email address like name@example.com.</p>
+              <span class="hint" id="invite-hint">Try the invitation with a sample address.</span>
+              <div class="row" style="margin-top:var(--m-s3)"><button class="btn btn--secondary" type="button" data-submit>Preview invite</button></div>
+            </div>
+          </div>
+        </div>
+        <details class="player-example" data-example="media">
+          <summary>Preview media controls</summary>
+          <div class="app glass glass--mist">
+            <div class="app__bar"><span class="app__label"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-volume"></use></svg>Player preview</span><span class="app__label">Still Air</span></div>
+            <div class="app__art" aria-hidden="true"><div class="app__haze"></div><span class="app__art-label">Still Air</span></div>
+            <div class="app__body">
+              <div class="app__title-row">
+                <div><p class="app__title">A Quiet Field</p><p class="app__artist">Rowan Vale</p></div>
+                <button class="icon-btn app__heart" type="button" aria-pressed="false" aria-label="Favourite" data-press-toggle><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-heart"></use></svg></button>
+              </div>
+              <div class="progress app__progress" role="progressbar" aria-label="Playback position" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"><span style="width:38%"></span></div>
+              <div class="app__times"><span>1:12</span><span>3:08</span></div>
+              <div class="app__controls">
+                <button class="icon-btn app__play" type="button" aria-label="Play" data-play><svg class="mi play-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-play"></use></svg><svg class="mi pause-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-pause"></use></svg></button>
+              </div>
+              <div class="app__foot"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-play-status>Paused</span></div>
+            </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -6357,50 +6703,11 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
       </div>
     </section>
 
-    <section class="section section--tight" id="components">
-      <div class="wrap">
-        <div class="section__head reveal">
-          <div><p class="eyebrow">Components</p><h2>Thirty-eight components, ready to use</h2></div>
-          <p class="lede">Each one is built from the tokens, specified with its states and tested against the accessibility clause. These are live.</p>
-        </div>
-        <div class="bento">
-          <div class="bento__item glass glass--mist reveal">
-            <div class="bento__head"><h3>Actions</h3><span>.btn .chip</span></div>
-            <div class="demo-row"><button class="btn" type="button">Cancel</button><button class="btn btn--secondary" type="button" data-toast="Draft saved" data-toast-body="You can pick it up on any device.">Save draft</button><button class="btn btn--danger" type="button" data-toast="Note deleted" data-toast-body="It’s in Recently deleted for 30 days." data-toast-tone="info">Delete note</button></div>
-            <div class="demo-row"><button class="chip" type="button" aria-pressed="true">All</button><button class="chip" type="button" aria-pressed="false">Notes</button><button class="chip" type="button" aria-pressed="false">Photos</button><button class="chip" type="button" aria-pressed="false">Places</button></div>
-          </div>
-          <div class="bento__item glass glass--mist reveal" style="--reveal-delay: 55ms">
-            <div class="bento__head"><h3>Selection</h3><span>.segmented .switch</span></div>
-            <div class="segmented" role="group" aria-label="Period"><button type="button" aria-pressed="true">Week</button><button type="button" aria-pressed="false">Month</button><button type="button" aria-pressed="false">Year</button></div>
-            <div class="demo-stack">
-              <div class="switch-row"><span id="sync-label">Sync over mobile data</span><button class="switch" type="button" role="switch" aria-checked="true" aria-labelledby="sync-label"><span class="switch__thumb"></span></button></div>
-              <label class="check"><input type="checkbox" checked> Show previews</label>
-            </div>
-          </div>
-          <div class="bento__item glass glass--mist reveal">
-            <div class="bento__head"><h3>Feedback</h3><span>.callout .progress</span></div>
-            <div class="callout callout--accent"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg><div class="callout__body"><span class="callout__title">New in 1.2</span><a href="standard/Misty_Design_Language_Standard_1_2.html#product-patterns">Try the workspace and explore the player and gallery patterns.</a></div></div>
-            <div class="demo-stack"><div class="row"><span class="small">Uploading four photos</span><span class="small muted nums" style="margin-inline-start:auto">68%</span></div><div class="progress" role="progressbar" aria-label="Uploading four photos" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"><span style="width:68%"></span></div></div>
-          </div>
-          <div class="bento__item glass glass--mist reveal" style="--reveal-delay: 55ms">
-            <div class="bento__head"><h3>Text input</h3><span>.field .input</span></div>
-            <div class="field" data-validate data-toast-title="Invitation sent" data-toast-body="Rowan will get a link to the field notes.">
-              <label class="label" for="invite-email">Email address</label>
-              <input class="input" id="invite-email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="invite-hint">
-              <p class="error-text" id="invite-error" hidden><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-error"></use></svg>Enter an email address like name@example.com.</p>
-              <span class="hint" id="invite-hint">They’ll get a link to the field notes.</span>
-              <div class="row" style="margin-top:var(--m-s3)"><button class="btn btn--secondary" type="button" data-submit>Send invite</button></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section section--tight" id="checked">
       <div class="wrap">
         <div class="section__head reveal">
           <div><p class="eyebrow">Checked</p><h2>Specified, measured, tested</h2></div>
-          <p class="lede">Misty is a standard, not a mood board. Every claim on this page can be checked against a numbered requirement or a script.</p>
+          <p class="lede">Review the requirements, inspect the contrast checks and trace each platform value back to its token.</p>
         </div>
         <div class="grid-3">
           <article class="card glass glass--mist stack-m reveal"><span class="feature-icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-list"></use></svg></span><h3>Every rule has a name</h3><p>251 numbered requirements, such as LAY-12 and COL-10, each a MUST, SHOULD or MAY. The checklist turns them into a review for a ticket.</p></article>
@@ -6425,12 +6732,31 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
         </div>
       </div>
     </section>
+    <section class="wrap section section--tight" aria-labelledby="film-title">
+      <figure class="film">
+        <div class="film__screen">
+          <video id="promo" width="1280" height="720" controls playsinline preload="none" poster="media/misty-poster.jpg"
+            src="media/misty-in-motion.mp4" aria-labelledby="film-title" aria-describedby="film-description">
+            <a href="media/misty-in-motion.mp4">Watch Misty in motion</a>
+          </video>
+          <button class="film__play" id="play-film" type="button" aria-controls="promo" hidden>
+            <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-play"></use></svg>Play film
+          </button>
+        </div>
+        <p id="film-description" class="sr-only">Three glass plates separate around a lit sphere. A change in hue recolours the palette. Clear, Mist, Veil and Cloud filter a band of light before the plates settle back together. Instrumental music.</p>
+        <figcaption class="film__caption">
+          <span><strong id="film-title">Misty in motion</strong><span class="film__duration">0:24</span></span>
+          <a href="media/misty-in-motion.mp4" download>Download MP4</a>
+        </figcaption>
+      </figure>
+    </section>
   </main>
   <footer class="footer">
     <div class="wrap">
       <div class="footer__grid">
         <div class="footer__about"><a class="footer__mark" href="index.html"><svg class="mi" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg>Misty</a><p class="footer__slogan">See what you see</p><p>The most elegant design language for the future: thin glass over a lit field, one hue, native type and movement that means something.</p></div>
-        <div><h4>Misty</h4><div class="footer__links"><a href="standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark options</a><a href="CHANGELOG.md">Changelog</a></div></div><div><h4>Build</h4><div class="footer__links"><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="#components">Components</a><a href="tokens/misty.tokens.json">Token file</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="LICENSE.md">Licences</a><a href="TRADEMARKS.md">Trademarks</a><a href="NOTICE">Notice</a><a href="CONTRIBUTING.md">Contributing</a></div></div>
+        <div><h4>Misty</h4><div class="footer__links"><a href="standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="sample/index.html">Sample site</a><a href="brand/index.html">Mark options</a><a href="CHANGELOG.md">Changelog</a></div></div><div><h4>Build</h4><div class="footer__links"><a href="#platforms">Platforms</a><a href="#languages">Languages</a><a href="#components">Components</a><a href="tokens/misty.tokens.json">Token file</a></div>
+          <h4 class="references-title">Design references</h4><div class="footer__links"><a href="https://m3.material.io/">Material 3</a><a href="https://fluent2.microsoft.design/">Fluent 2</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="LICENSE.md">Licences</a><a href="TRADEMARKS.md">Trademarks</a><a href="NOTICE">Notice</a><a href="CONTRIBUTING.md">Contributing</a></div></div>
       </div>
       <div class="footer__bottom"><span><svg class="mi mi--sm" viewBox="0 0 32 32" aria-hidden="true"><use href="#mi-mark"></use></svg>Misty 1.2 · 2026</span><span>© 2026 ZodiaCALs. Misty and the Misty mark are trademarks of ZodiaCALs.</span></div>
     </div>
@@ -6486,6 +6812,82 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
     $$("[data-hue-preset]").forEach((b) => b.addEventListener("click", () => applyHue(b.dataset.huePreset)));
     applyHue(getComputedStyle(root).getPropertyValue("--m-hue").trim() || 250, false);
   }
+
+  const film = $("#promo");
+  const playFilm = $("#play-film");
+  if (film.canPlayType("video/mp4")) {
+    film.controls = false;
+    playFilm.hidden = false;
+    playFilm.addEventListener("click", async () => {
+      film.controls = true;
+      playFilm.hidden = true;
+      film.focus();
+      try { await film.play(); }
+      catch (error) {
+        if (error.name !== "AbortError") toast("Film playback unavailable", "Use Download MP4 to watch the film in your video player.", "info");
+      }
+    });
+  }
+
+  const field = $(".study__field");
+  const spacing = $("#layer-spacing");
+  const spacingValue = $("#spacing-value");
+  function paintSpacing() {
+    field.style.setProperty("--spacing", spacing.value + "px");
+    spacing.style.setProperty("--m-slider-fill", (spacing.valueAsNumber / Number(spacing.max) * 100) + "%");
+    spacingValue.textContent = spacing.value + " px";
+    spacing.setAttribute("aria-valuetext", spacing.value + " pixels");
+  }
+  spacing.addEventListener("input", paintSpacing);
+  window.addEventListener("pageshow", paintSpacing);
+  paintSpacing();
+
+  let drag;
+  field.addEventListener("pointerdown", event => {
+    if (drag || !event.isPrimary || event.button !== 0) return;
+    field.setPointerCapture(event.pointerId);
+    drag = { id: event.pointerId, y: event.clientY, spacing: spacing.valueAsNumber };
+  });
+  field.addEventListener("pointermove", event => {
+    if (drag?.id !== event.pointerId) return;
+    spacing.value = String(Math.round(drag.spacing + (drag.y - event.clientY) / 2));
+    paintSpacing();
+  });
+  field.addEventListener("lostpointercapture", () => { drag = null; });
+
+  const grade = $("#study-grade");
+  const sample = $(".study__plate--sample");
+  function paintGrade() {
+    for (const option of grade.options) {
+      sample.classList.toggle(`glass--${option.value}`, option.selected);
+    }
+  }
+  grade.addEventListener("change", paintGrade);
+  window.addEventListener("pageshow", paintGrade);
+  paintGrade();
+
+  const sectionLinks = $$('.nav a[href^="#"]');
+  const destinations = sectionLinks.map(link => $(link.hash));
+  let currentSection;
+  let sectionFrame;
+  function trackSection() {
+    sectionFrame = 0;
+    const readingLine = window.innerHeight / 3;
+    const reached = destinations.filter(section => section.getBoundingClientRect().top <= readingLine);
+    const current = reached[reached.length - 1];
+    if (current === currentSection) return;
+    currentSection = current;
+    for (const link of sectionLinks) {
+      if (current && link.hash === `#${current.id}`) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    }
+  }
+  function scheduleSectionUpdate() {
+    if (!sectionFrame) sectionFrame = requestAnimationFrame(trackSection);
+  }
+  window.addEventListener("scroll", scheduleSectionUpdate, { passive: true });
+  window.addEventListener("resize", scheduleSectionUpdate);
+  window.addEventListener("pageshow", scheduleSectionUpdate);
 
   /* Toasts: polite, never take focus, stay five seconds (FBK-03 to FBK-05) */
   const region = $("[data-toast-region]");
@@ -6582,8 +6984,13 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
 
   /* Toggle chips and switches (ACT-11, SEL-01, SEL-02) */
   document.addEventListener("click", (event) => {
-    const chip = event.target.closest("button.chip[aria-pressed]");
-    if (chip) chip.setAttribute("aria-pressed", String(chip.getAttribute("aria-pressed") !== "true"));
+    const filter = event.target.closest("[data-filter]");
+    if (filter) {
+      $$("[data-filter]").forEach((button) => button.setAttribute("aria-pressed", String(button === filter)));
+      $$("[data-example]").forEach((example) => {
+        example.hidden = filter.dataset.filter !== "all" && filter.dataset.filter !== example.dataset.example;
+      });
+    }
     const sw = event.target.closest('.switch[role="switch"]');
     if (sw) {
       const on = sw.getAttribute("aria-checked") !== "true";
@@ -6601,30 +7008,8 @@ const card = { backgroundColor: colours.cloud, padding: space.s4, borderRadius: 
     app.classList.toggle("is-playing", on);
     button.setAttribute("aria-label", on ? "Pause" : "Play");
     const status = $("[data-play-status]", app);
-    if (status) status.textContent = on ? "Playing on this device" : "Paused";
+    if (status) status.textContent = on ? "Playing · silent preview" : "Paused";
   }));
-
-  /* Menu for compact windows (NAV-03) */
-  const menuButton = $("[data-menu-toggle]");
-  const menu = menuButton && document.getElementById(menuButton.getAttribute("aria-controls"));
-  if (menuButton && menu) {
-    const close = (focus) => {
-      menu.hidden = true;
-      menuButton.setAttribute("aria-expanded", "false");
-      if (focus) menuButton.focus();
-    };
-    menuButton.addEventListener("click", () => {
-      const open = menu.hidden;
-      menu.hidden = !open;
-      menuButton.setAttribute("aria-expanded", String(open));
-      if (open) $("a, button", menu)?.focus();
-    });
-    menu.addEventListener("click", (event) => { if (event.target.closest("a")) close(false); });
-    document.addEventListener("click", (event) => {
-      if (!menu.hidden && !menu.contains(event.target) && !menuButton.contains(event.target)) close(false);
-    });
-    document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !menu.hidden) close(true); });
-  }
 
   /* Email fields: check on leaving, clear as soon as fixed (INP-02, INP-04) */
   $$("[data-validate]").forEach((form) => {

@@ -6019,9 +6019,116 @@ select.input:dir(rtl) {
 
 .fb-h2 { margin-block-start: var(--m-s3); font-size: var(--m-text-h2); line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; }
 .center-head .lede { margin-block-start: var(--m-s4); }
-.fb-proof { align-items: center; }
-.app .fb-entries { margin-block-start: var(--m-s3); border-radius: var(--m-r-md); background-color: var(--m-fill); }
-.fb-entries .list-row > .mi:last-child, .fb-journal .list-row > .mi:last-child { margin-inline-start: auto; color: var(--m-ink-50); }
+.ambient__glow { opacity: .48; }
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .ambient__glow { display: none; }
+}
+.topbar { padding: .75rem var(--m-gutter) 0; }
+.topbar__inner {
+  max-width: calc(var(--m-page) - 2 * var(--m-gutter));
+  height: 3.75rem;
+  padding-inline: var(--m-s4);
+  border: 1px solid var(--m-line);
+  border-radius: var(--m-r-full);
+  corner-shape: round;
+}
+.topbar__inner, .mobile-menu { --m-alpha: .84; }
+.brand { font-size: 1.125rem; margin-inline-end: var(--m-s3); }
+.nav a, .topbar__actions .btn, .hero__actions .btn {
+  border-radius: var(--m-r-full);
+  corner-shape: round;
+}
+.mobile-menu { top: 5rem; }
+@media (forced-colors: active) {
+  .glass { background: Canvas; backdrop-filter: none; -webkit-backdrop-filter: none; border: 1px solid CanvasText; }
+}
+.walk-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--m-s4);
+  margin-block-start: clamp(1rem, 3vw, 2.5rem);
+}
+.walk-hero__copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(1.5rem, 3.6vw, 3.5rem);
+  border-radius: var(--m-r-2xl);
+  background:
+    repeating-radial-gradient(ellipse at 110% 132%, transparent 0 28px, oklch(.86 .09 var(--m-hue) / .12) 29px, transparent 30px 43px),
+    linear-gradient(140deg, oklch(.25 .05 var(--m-hue)) 18%, oklch(.34 .07 var(--m-hue)) 70%, oklch(.44 .08 var(--m-hue)));
+  box-shadow: inset 0 1px var(--m-glass-edge), var(--m-shadow-1);
+  color: var(--m-ink-90);
+}
+.walk-hero__copy .eyebrow { color: inherit; }
+.walk-hero__copy h1 {
+  max-width: 11ch;
+  margin-block: var(--m-s5);
+  font-size: clamp(3.2rem, 5.8vw, 5.3rem);
+  line-height: 1;
+  letter-spacing: -.055em;
+  font-weight: 600;
+  color: var(--m-ink-90);
+}
+.walk-hero__copy > p:not(.eyebrow) { max-width: 38ch; font-size: var(--m-text-lede); line-height: 1.55; }
+.walk-hero__copy .hero__actions { align-items: center; gap: var(--m-s4); }
+.walk-hero__copy .btn--primary { background: var(--m-accent-text); color: var(--m-on-accent); }
+.walk-hero__copy .btn--primary:hover { background: var(--m-accent-hover); }
+.walk-hero__copy .link-arrow { color: inherit; }
+.walk-hero__copy :focus-visible { outline-color: #fff; }
+.walk-map {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-rows: auto minmax(12rem, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid var(--m-line);
+  border-radius: var(--m-r-2xl);
+  background: #dce8cf;
+  box-shadow: var(--m-shadow-2);
+}
+.walk-map__head, .walk-stats {
+  z-index: 1;
+  margin: var(--m-s3);
+  border-radius: var(--m-r-xl);
+  border: 1px solid var(--m-line);
+  --m-alpha: .86;
+}
+.walk-map__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--m-s2);
+  padding: var(--m-s3) var(--m-s4);
+}
+.walk-map__head strong { display: block; font-size: 1.25rem; line-height: 1.3; letter-spacing: -.03em; }
+.walk-map__head span, .walk-stats dt { color: var(--m-ink-70); font-size: .8125rem; }
+.walk-map__drawing { width: 100%; height: 100%; min-height: 0; overflow: visible; }
+.map-labels { font: 600 12px var(--m-font-sans); fill: #264838; stroke: #dce8cf; stroke-width: 4px; paint-order: stroke; stroke-linejoin: round; }
+.map-pin { color: #fff; cursor: pointer; }
+.map-pin__disc { fill: #194a3e; stroke: #fff; stroke-width: 2.5; }
+.map-pin text { font-size: 14px; font-weight: 700; fill: currentColor; }
+.map-pin:is(:hover, :focus-visible) .map-pin__disc { stroke: #142e21; stroke-width: 4; fill: #27745d; }
+.walk-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding-block: var(--m-s3); }
+.walk-stats div { padding-inline: clamp(.5rem, 2vw, 1.5rem); }
+.walk-stats div + div { border-inline-start: 1px solid var(--m-line); }
+.walk-stats dd { margin: 0; font-size: clamp(1rem, 1.7vw, 1.4rem); font-weight: 600; line-height: 1.4; }
+#journal-title { overflow-wrap: anywhere; }
+.walk-note + .walk-note { border-block-start: 1px solid var(--m-line); }
+.walk-note summary { display: flex; gap: var(--m-s3); align-items: center; padding: var(--m-s3); border-radius: var(--m-r-md); cursor: pointer; }
+.walk-note summary::-webkit-details-marker { display: none; }
+.walk-note summary:is(:hover, :focus-visible) { background: var(--m-fill-hover); }
+.walk-note__pin { display: grid; place-items: center; flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: var(--m-accent-soft); color: var(--m-accent-text); font-weight: 650; }
+.walk-note summary strong, .walk-note summary small { display: block; }
+.walk-note summary small { color: var(--m-ink-70); }
+.walk-note summary > .mi { margin-inline-start: auto; }
+.walk-note[open] summary > .mi { rotate: 180deg; }
+.walk-note p { max-width: 72ch; padding: 0 var(--m-s4) var(--m-s4); margin-inline-start: 2.75rem; color: var(--m-ink-70); }
+@media (max-width: 760px) {
+  .walk-hero { grid-template-columns: 1fr; }
+  .walk-hero__copy { padding: var(--m-s7) var(--m-s5); }
+  .walk-map__drawing { aspect-ratio: 520 / 310; height: auto; }
+}
+
 .fb-steps { list-style: none; margin-block-start: clamp(1.75rem, 3.5vw, 2.75rem); padding: 0; }
 .fb-step {
   display: grid;
@@ -6069,8 +6176,9 @@ select.input:dir(rtl) {
 })();</script>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><div class="ambient__glow"></div></div>
   <a class="skip-link" href="#main">Skip to content</a>
-  <div class="ambient" aria-hidden="true"><div class="ambient__glow"></div><div class="ambient__grain"></div></div>
+
 <svg id="mi-sprite" xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="mi-brand-grad" x1="0" y1="0" x2="1" y2="1">
@@ -6141,57 +6249,105 @@ select.input:dir(rtl) {
   <header class="topbar">
     <div class="topbar__inner glass glass--veil">
       <a class="brand" href="index.html" aria-label="Fieldbook, home"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fb-mark"></use></svg><span>Fieldbook</span></a>
-      <nav class="nav" aria-label="Main"><a href="#how">Features</a><a href="#journal">Journal</a><a href="#pricing">Pricing</a><a href="#report">Field report</a></nav>
+      <nav class="nav" aria-label="Main"><a href="#journal">Journal</a><a href="#how">Features</a><a href="#pricing">Pricing</a><a href="#report">Field report</a></nav>
       <div class="topbar__actions">
-        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch appearance"><svg class="mi icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg><svg class="mi icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-moon"></use></svg></button><a class="btn btn--quiet btn--sm nav-cta" href="#pricing">Sign in</a>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch appearance"><svg class="mi icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg><svg class="mi icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-moon"></use></svg></button><a class="btn btn--quiet btn--sm nav-cta" href="../index.html">Misty home</a>
         <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Menu"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-menu"></use></svg></button>
       </div>
     </div>
   </header>
-  <nav class="mobile-menu glass glass--veil" id="site-menu" aria-label="Menu" hidden><a href="#how">Features</a><a href="#journal">Journal</a><a href="#pricing">Pricing</a><a href="#report">Field report</a></nav>
+  <nav class="mobile-menu glass glass--veil" id="site-menu" aria-label="Menu" hidden><a href="../index.html">Misty home</a><a href="#journal">Journal</a><a href="#how">Features</a><a href="#pricing">Pricing</a><a href="#report">Field report</a></nav>
 
   <main id="main" class="page-main" tabindex="-1">
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow"><span class="eyebrow__dot"></span>Fieldbook 3</p>
-          <h1 class="display">Notice more on every walk</h1>
-          <p class="lede hero__lede">A quiet notebook for walks, weather and the small things you see along the way. It works offline, keeps your notes private and fits in a pocket.</p>
-          <div class="hero__actions">
-            <button class="btn btn--primary btn--lg" type="button" data-dialog-open="start-dialog">Start a notebook</button>
-            <a class="link-arrow" href="#how">See how it works <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
-          </div>
-          <div class="hero__meta fb-proof"><span class="avatar-stack" aria-hidden="true"><span class="avatar">RV</span><span class="avatar">AK</span><span class="avatar">MS</span></span><span>Used on 40,000 walks this autumn</span></div>
-        </div>
-        <div class="hero__stage">
-          <div class="stage-glow" aria-hidden="true"></div>
-          <div class="app glass glass--mist">
-            <div class="app__bar"><span class="app__label"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-calendar"></use></svg>Today</span><span class="app__label">3 notes</span></div>
-            <div class="app__art" aria-hidden="true"><div class="app__haze"></div><span class="app__art-label">Black Down, 07:12</span></div>
-            <div class="list-group fb-entries"><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg></span><span class="list-row__text"><span class="list-row__title">Mist on the ridge</span><span class="list-row__desc">07:12 · 6.2 km · Light mist, 9 °C</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-eye"></use></svg></span><span class="list-row__text"><span class="list-row__title">Two buzzards over the valley</span><span class="list-row__desc">08:03 · Black Down</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg></span><span class="list-row__text"><span class="list-row__title">First frost on the bracken</span><span class="list-row__desc">08:40 · Temple of the Winds</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a></div>
-            <div class="app__foot"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-globe"></use></svg><span>6.2 km · 1 h 48 min · 214 m climb</span></div>
-          </div>
-          <div class="stage-float stage-float--hue glass glass--veil"><i></i>Light mist <b>9 °C</b></div>
+    <section class="walk-hero wrap" aria-labelledby="walk-title">
+      <div class="walk-hero__copy" data-theme="dark">
+        <p class="eyebrow">Fieldbook · Walking journal</p>
+        <h1 id="walk-title">Notice more on every walk.</h1>
+        <p>A pocket notebook for the route you took, the weather that rolled in and the things you stopped to see.</p>
+        <div class="hero__actions">
+          <button class="btn btn--primary btn--lg" type="button" data-dialog-open="start-dialog">Start a notebook</button>
+          <a class="link-arrow" href="#journal">Explore the journal <svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-arrow-right"></use></svg></a>
         </div>
       </div>
-    </section>
-
-    <section class="section section--tight" id="how">
-      <div class="wrap">
-        <div class="center-head reveal"><p class="eyebrow">How it works</p><h2 class="fb-h2">Three steps, and none of them is typing</h2></div>
-        <ol class="grid-3 fb-steps">
-          <li class="card glass glass--mist stack-m reveal"><span class="fb-step">1</span><h3>Walk</h3><p>Open Fieldbook and set off. It records the route quietly, with or without signal.</p></li>
-          <li class="card glass glass--mist stack-m reveal" style="--reveal-delay: 55ms"><span class="fb-step">2</span><h3>Notice</h3><p>Tap once to note what you see: a bird, a sky, the smell after rain. Add a photo if you like.</p></li>
-          <li class="card glass glass--mist stack-m reveal" style="--reveal-delay: 110ms"><span class="fb-step">3</span><h3>Keep</h3><p>Each walk becomes a page with the weather, the route and your notes, ready on every device.</p></li>
-        </ol>
-      </div>
+      <figure class="walk-map">
+        <figcaption class="walk-map__head glass glass--veil"><div><strong>Black Down</strong><span>West Sussex, England</span></div><span class="row"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg> 9 °C</span></figcaption>
+        <svg class="walk-map__drawing" viewBox="0 0 520 310" aria-labelledby="map-title map-desc">
+          <title id="map-title">Black Down walking route</title>
+          <desc id="map-desc">Choose one of three numbered stops to read its field note.</desc>
+            <defs>
+              <pattern id="map-grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#527961" stroke-opacity=".17"/></pattern>
+              <path id="hill" d="M-137 -46C-131 -90 -64 -121 -6 -103S69 -62 103 -46 152 9 124 49 78 94 27 91 -40 126 -95 99 -129 47 -145 13 -150 -13 -137 -46Z"/>
+            </defs>
+            <g transform="translate(20 16) rotate(12)" fill="none" stroke="#809f7b" stroke-width=".9">
+              <use href="#hill" transform="scale(2.25)" stroke-opacity=".56" fill="#c4d8b4"/>
+              <use href="#hill" transform="scale(2.07)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.89)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.71)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.53)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.35)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.17)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.99)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.81)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.63)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.45)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.27)" stroke-opacity=".56"/>
+            </g>
+            <g transform="translate(482 298) rotate(-28)" fill="none" stroke="#809f7b" stroke-width=".9">
+              <use href="#hill" transform="scale(2.25)" stroke-opacity=".56" fill="#bcd4b2"/>
+              <use href="#hill" transform="scale(2.07)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.89)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.71)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.53)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.35)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(1.17)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.99)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.81)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.63)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.45)" stroke-opacity=".56"/>
+              <use href="#hill" transform="scale(0.27)" stroke-opacity=".56"/>
+            </g>
+            <rect x="-520" y="-310" width="1560" height="930" fill="url(#map-grid)"/>
+            <path d="M-10 273C58 238 74 266 113 234S158 170 180 147 234 99 249 62 266 11 293 -10" fill="none" stroke="#a1c6c4" stroke-width="9"/>
+            <path d="M-10 273C58 238 74 266 113 234S158 170 180 147 234 99 249 62 266 11 293 -10" fill="none" stroke="#e5f0e9" stroke-width="2"/>
+            <path d="M65 315Q100 225 139 201T221 201 348 133 526 83" fill="none" stroke="#738366" stroke-width="2" stroke-dasharray="5 5"/>
+            <defs><path id="walk-route" d="M136 186Q139 158 160 151L190 140Q207 134 221 109T251 86 285 101L314 114Q335 121 341 146L352 173Q357 185 382 206L356 218Q327 232 292 217T239 204L206 213Q184 217 162 205Z"/></defs>
+            <use href="#walk-route" fill="none" stroke="#f2f6e9" stroke-width="9" stroke-linejoin="round"/>
+            <use href="#walk-route" fill="none" stroke="#155949" stroke-width="4" stroke-linejoin="round" />
+            <g class="map-labels" aria-hidden="true">
+              <text x="90" y="159">Ridge path</text>
+              <text x="297" y="79">Valley viewpoint</text>
+              <text x="358" y="243">Temple of the Winds</text>
+            </g>
+            <a class="map-pin" href="#note-ridge" aria-label="Read note 1, Mist on the ridge">
+              <circle cx="136" cy="186" r="23" fill="transparent"/>
+              <circle class="map-pin__disc" cx="136" cy="186" r="13"/>
+              <text x="136" y="191" text-anchor="middle">1</text>
+            </a>
+            <a class="map-pin" href="#note-valley" aria-label="Read note 2, Two buzzards over the valley">
+              <circle cx="285" cy="101" r="23" fill="transparent"/>
+              <circle class="map-pin__disc" cx="285" cy="101" r="13"/>
+              <text x="285" y="106" text-anchor="middle">2</text>
+            </a>
+            <a class="map-pin" href="#note-bracken" aria-label="Read note 3, First frost on the bracken">
+              <circle cx="382" cy="206" r="23" fill="transparent"/>
+              <circle class="map-pin__disc" cx="382" cy="206" r="13"/>
+              <text x="382" y="211" text-anchor="middle">3</text>
+            </a>
+            <g aria-hidden="true" transform="translate(480 25)" fill="#355949"><path d="M0 6 -5 21 0 18 5 21Z"/><text text-anchor="middle" font-size="12" font-weight="700">N</text></g>
+        </svg>
+        <dl class="walk-stats glass glass--veil">
+          <div><dt>Distance</dt><dd>6.2 km</dd></div>
+          <div><dt>Duration</dt><dd>1 h 48 min</dd></div>
+          <div><dt>Ascent</dt><dd>214 m</dd></div>
+        </dl>
+      </figure>
     </section>
 
     <section class="section section--tight" id="journal">
       <div class="wrap">
         <div class="section__head reveal">
-          <div><p class="eyebrow">Your journal</p><h2>Every walk, one page</h2></div>
-          <p class="lede">Read back a morning, a week or a place. Fieldbook groups notes for you, and you can search them all at once.</p>
+          <div><p class="eyebrow">Black Down · Sample walk</p><h2 id="journal-title">Walk journal</h2></div>
+          <p class="lede">Open a note from the morning walk, or switch views to browse the week.</p>
         </div>
         <div class="fb-journal glass glass--cloud reveal">
           <div class="tabs" role="tablist" aria-label="Journal view">
@@ -6200,7 +6356,18 @@ select.input:dir(rtl) {
             <button type="button" role="tab" id="jt-places" aria-controls="jp-places" aria-selected="false" tabindex="-1">Places</button>
           </div>
           <div class="fb-panel" role="tabpanel" id="jp-today" aria-labelledby="jt-today" tabindex="0">
-            <div class="list-group"><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sun"></use></svg></span><span class="list-row__text"><span class="list-row__title">Mist on the ridge</span><span class="list-row__desc">07:12 · 6.2 km · Light mist, 9 °C</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-eye"></use></svg></span><span class="list-row__text"><span class="list-row__title">Two buzzards over the valley</span><span class="list-row__desc">08:03 · Black Down</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a><a class="list-row" href="#journal"><span class="list-row__icon"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-sparkle"></use></svg></span><span class="list-row__text"><span class="list-row__title">First frost on the bracken</span><span class="list-row__desc">08:40 · Temple of the Winds</span></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-right"></use></svg></a></div>
+            <details class="walk-note" id="note-ridge">
+              <summary><span class="walk-note__pin" aria-hidden="true">1</span><span><strong>Mist on the ridge</strong><small>07:12 · Ridge path</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-down"></use></svg></summary>
+              <p>The tops of the birches caught the light first. From the path, the valley looked like a single bank of cloud.</p>
+            </details>
+            <details class="walk-note" id="note-valley">
+              <summary><span class="walk-note__pin" aria-hidden="true">2</span><span><strong>Two buzzards over the valley</strong><small>08:03 · Valley viewpoint</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-down"></use></svg></summary>
+              <p>Two buzzards circled above the clearing. I could hear their calls long after they drifted behind the trees.</p>
+            </details>
+            <details class="walk-note" id="note-bracken">
+              <summary><span class="walk-note__pin" aria-hidden="true">3</span><span><strong>First frost on the bracken</strong><small>08:40 · Temple of the Winds</small></span><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-chevron-down"></use></svg></summary>
+              <p>The bracken was white on the shady side of the path. A few steps further on, the frost had already melted.</p>
+            </details>
           </div>
           <div class="fb-panel" role="tabpanel" id="jp-week" aria-labelledby="jt-week" tabindex="0" hidden>
             <div class="grid-3">
@@ -6216,10 +6383,21 @@ select.input:dir(rtl) {
       </div>
     </section>
 
+    <section class="section section--tight" id="how">
+      <div class="wrap">
+        <div class="center-head reveal"><p class="eyebrow">How it works</p><h2 class="fb-h2">From walk to field notes</h2></div>
+        <ol class="grid-3 fb-steps">
+          <li class="card glass glass--mist stack-m reveal"><span class="fb-step">1</span><h3>Walk</h3><p>Open Fieldbook and set off. It records the route quietly, with or without signal.</p></li>
+          <li class="card glass glass--mist stack-m reveal" style="--reveal-delay: 55ms"><span class="fb-step">2</span><h3>Notice</h3><p>Tap once to note what you see: a bird, a sky, the smell after rain. Add a photo if you like.</p></li>
+          <li class="card glass glass--mist stack-m reveal" style="--reveal-delay: 110ms"><span class="fb-step">3</span><h3>Keep</h3><p>Each walk becomes a page with the weather, the route and your notes, ready on every device.</p></li>
+        </ol>
+      </div>
+    </section>
+
     <section class="section section--tight" id="pricing">
       <div class="wrap">
         <div class="center-head reveal">
-          <p class="eyebrow">Pricing</p><h2 class="fb-h2">Free for your first hundred walks</h2>
+          <p class="eyebrow">Pricing</p><h2 class="fb-h2">100 walks a year, free</h2>
           <p class="lede">Upgrade when Fieldbook becomes a habit. Cancel whenever you like, and keep every note.</p>
           <div class="segmented fb-billing" role="group" aria-label="Billing period" data-billing><button type="button" aria-pressed="true" data-value="monthly">Monthly</button><button type="button" aria-pressed="false" data-value="yearly">Yearly</button></div>
         </div>
@@ -6230,10 +6408,10 @@ select.input:dir(rtl) {
             <button class="btn" type="button" data-dialog-open="start-dialog">Start a notebook</button>
           </article>
           <article class="card glass glass--cloud stack-m reveal" style="--reveal-delay: 55ms">
-            <div class="row"><h3>Fieldbook Plus</h3><span class="badge badge--accent">Popular</span></div>
+            <div class="row"><h3>Fieldbook Plus</h3></div>
             <p class="fb-price"><b data-monthly="£3" data-yearly="£30">£3</b> <span data-monthly="a month" data-yearly="a year">a month</span></p>
             <ul class="fb-list"><li><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>Unlimited walks</li><li><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>Maps and elevation</li><li><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-check"></use></svg>Shared notebooks for up to five</li></ul>
-            <button class="btn btn--secondary" type="button" data-toast="Trial started" data-toast-body="Plus is free for 14 days. We’ll remind you before it ends.">Start a free trial</button>
+            <button class="btn btn--secondary" type="button" data-toast="Fieldbook Plus preview" data-toast-body="The sample plan includes 14 days of unlimited walks.">Preview free trial</button>
           </article>
         </div>
       </div>
@@ -6254,11 +6432,11 @@ select.input:dir(rtl) {
             <h2>One email a month, no more</h2>
             <p>Walks worth taking, the weather ahead and what other readers noticed.</p>
           </div>
-          <div class="field fb-signup" data-validate data-toast-title="Subscribed" data-toast-body="The first field report arrives on 1 December.">
+          <div class="field fb-signup" data-validate data-toast-title="Subscription preview" data-toast-body="Your sample address passed validation.">
             <label class="label" for="report-email">Email address</label>
             <div class="row fb-signup__row"><input class="input" id="report-email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="report-hint"><button class="btn btn--secondary" type="button" data-submit>Subscribe</button></div>
             <p class="error-text" id="report-error" hidden><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-error"></use></svg>Enter an email address like name@example.com.</p>
-            <span class="hint" id="report-hint">Unsubscribe from any email.</span>
+            <span class="hint" id="report-hint">Use a sample address to try the signup.</span>
           </div>
         </div>
       </div>
@@ -6268,10 +6446,10 @@ select.input:dir(rtl) {
   <dialog class="dialog" id="start-dialog" aria-labelledby="start-dialog-title">
     <div class="dialog__card">
       <div class="dialog__head"><h2 id="start-dialog-title">Start a notebook</h2><button class="icon-btn" type="button" data-dialog-close aria-label="Close dialog"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-close"></use></svg></button></div>
-      <div class="dialog__body field" data-validate data-toast-title="Notebook created" data-toast-body="Take it for a walk.">
-        <p>Give your notebook a name. You can change it later.</p>
+      <div class="dialog__body field" data-validate>
+        <p>Choose a name for your walk journal on this device.</p>
         <label class="label" for="notebook-name" style="margin-top:var(--m-s4)">Notebook name</label>
-        <input class="input" id="notebook-name" type="text" required autocomplete="off" data-autofocus aria-describedby="notebook-hint">
+        <input class="input" id="notebook-name" type="text" required autocomplete="off" autofocus maxlength="80" aria-describedby="notebook-hint">
         <p class="error-text" id="notebook-error" hidden><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#mi-error"></use></svg>Enter a name for the notebook.</p>
         <span class="hint" id="notebook-hint">For example, “Autumn walks”.</span>
         <div class="dialog__foot"><button class="btn" type="button" data-dialog-close>Cancel</button><button class="btn btn--primary" type="button" data-submit>Create notebook</button></div>
@@ -6282,7 +6460,7 @@ select.input:dir(rtl) {
     <div class="wrap">
       <div class="footer__grid">
         <div class="footer__about"><a class="footer__mark" href="index.html"><svg class="mi" viewBox="0 0 24 24" aria-hidden="true"><use href="#fb-mark"></use></svg>Fieldbook</a><p>Fieldbook is a fictional product, made to show what a site built with the Misty design language looks like.</p></div>
-        <div><h4>Fieldbook</h4><div class="footer__links"><a href="#how">Features</a><a href="#journal">Journal</a><a href="#pricing">Pricing</a></div></div><div><h4>Misty</h4><div class="footer__links"><a href="../index.html">Misty home</a><a href="../standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="../brand/index.html">Mark options</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="../LICENSE.md">Licences</a><a href="../TRADEMARKS.md">Trademarks</a></div></div>
+        <div><h4>Fieldbook</h4><div class="footer__links"><a href="#journal">Journal</a><a href="#how">Features</a><a href="#pricing">Pricing</a></div></div><div><h4>Misty</h4><div class="footer__links"><a href="../index.html">Misty home</a><a href="../standard/Misty_Design_Language_Standard_1_2.html">The standard</a><a href="../brand/index.html">Mark options</a></div></div><div><h4>Legal</h4><div class="footer__links"><a href="../LICENSE.md">Licences</a><a href="../TRADEMARKS.md">Trademarks</a></div></div>
       </div>
       <div class="footer__bottom"><span>Designed with the Misty design language</span><span>© 2026 ZodiaCALs</span></div>
     </div>
@@ -6383,15 +6561,31 @@ select.input:dir(rtl) {
   });
 
   /* Dialogs: native, modal, focus returns to the trigger (OVL-01 to OVL-03) */
-  $$("[data-dialog-open]").forEach((trigger) => {
-    const dialog = document.getElementById(trigger.dataset.dialogOpen);
-    if (!dialog || typeof dialog.showModal !== "function") return;
-    trigger.addEventListener("click", () => {
-      dialog.showModal();
-      window.setTimeout(() => $("[data-autofocus]", dialog)?.focus(), 10);
-    });
-    dialog.addEventListener("close", () => trigger.focus());
-    dialog.addEventListener("click", (event) => { if (event.target.closest("[data-dialog-close]")) dialog.close(); });
+  const notebookDialog = $("#start-dialog");
+  const notebookName = $("#notebook-name");
+  const notebookButtons = $$('[data-dialog-open="start-dialog"]');
+  let notebookOpener;
+  let currentName = store.get("fieldbook-notebook") || "";
+  function showNotebook() {
+    $("#journal-title").textContent = currentName || "Walk journal";
+    const action = currentName ? "Rename notebook" : "Start a notebook";
+    notebookButtons.forEach((button) => { button.textContent = action; });
+    $("#start-dialog-title").textContent = action;
+    $("[data-submit]", notebookDialog).textContent = currentName ? "Save name" : "Create notebook";
+  }
+  showNotebook();
+  notebookButtons.forEach((button) => button.addEventListener("click", () => {
+    notebookOpener = button;
+    notebookName.value = currentName;
+    notebookName.removeAttribute("aria-invalid");
+    notebookName.setAttribute("aria-describedby", "notebook-hint");
+    $("#notebook-error").hidden = true;
+    notebookDialog.showModal();
+    notebookName.select();
+  }));
+  notebookDialog.addEventListener("close", () => notebookOpener?.focus());
+  notebookDialog.addEventListener("click", (event) => {
+    if (event.target.closest("[data-dialog-close]")) notebookDialog.close();
   });
 
   /* Tabs: ARIA tabs pattern, arrow keys follow the writing direction (NAV-07) */
@@ -6422,6 +6616,25 @@ select.input:dir(rtl) {
       });
     });
   });
+
+  /* A map stop links to the same note that can be opened in the journal. */
+  function openMapNote() {
+    const note = document.getElementById(location.hash.slice(1));
+    if (!note?.classList.contains("walk-note")) return;
+    $("#jt-today").click();
+    note.open = true;
+    $("summary", note).focus({ preventScroll: true });
+    note.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("hashchange", openMapNote);
+  $$(".map-pin").forEach((pin) => pin.addEventListener("click", (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (pin.getAttribute("href") === location.hash) {
+      event.preventDefault();
+      openMapNote();
+    }
+  }));
+  openMapNote();
 
   /* Segmented controls act at once (SEL-06, SEL-07) */
   document.addEventListener("click", (event) => {
@@ -6465,6 +6678,9 @@ select.input:dir(rtl) {
       menuButton.setAttribute("aria-expanded", "false");
       if (focus) menuButton.focus();
     };
+    window.matchMedia("(max-width: 900px)").addEventListener("change", event => {
+      if (!event.matches) close(false);
+    });
     menuButton.addEventListener("click", () => {
       const open = menu.hidden;
       menu.hidden = !open;
@@ -6496,7 +6712,15 @@ select.input:dir(rtl) {
     input.addEventListener("keydown", (event) => { if (event.key === "Enter") submit.click(); });
     submit.addEventListener("click", () => {
       if (!check()) { input.focus(); return; }
-      toast(form.dataset.toastTitle, form.dataset.toastBody);
+      if (input === notebookName) {
+        const title = currentName ? "Notebook renamed" : "Notebook created";
+        currentName = input.value.trim();
+        store.set("fieldbook-notebook", currentName);
+        showNotebook();
+        toast(title, currentName);
+      } else {
+        toast(form.dataset.toastTitle, form.dataset.toastBody);
+      }
       input.value = "";
       input.removeAttribute("aria-invalid");
       if (form.closest("dialog")) form.closest("dialog").close();
